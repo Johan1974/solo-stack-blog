@@ -45,9 +45,15 @@ Twee stappen, bewust gescheiden (een schrijver reviewt zichzelf niet):
 
 Publiceren blijft dus altijd een expliciete menselijke stap voor routine-gegenereerde content, ook als de kwaliteitscontroleur akkoord geeft.
 
+## Artikelen actueel houden (vastgesteld 2026-09-05)
+Gepubliceerde artikelen zijn nooit "af" — tool-pricing, features en affiliate-voorwaarden veranderen. **Solo-stack-freshness-routine** (wekelijks, cron): pakt om de beurt één al gepubliceerd artikel, zoekt online naar de huidige staat van de besproken tool(s), en opent een PR met updates als iets is veranderd (prijs, features, een dode link, een tool die niet meer bestaat). Bijgehouden in `FRESHNESS-LOG.md` (welk artikel wanneer voor het laatst gecheckt is, zodat de routine ze roteert in plaats van steeds hetzelfde artikel te pakken). Zelfde publicatieregel als de schrijver-routine: PR, nooit direct naar `main`.
+
+## Gratis groei/promotie-research (vastgesteld 2026-09-05)
+Nadrukkelijke wens van de gebruiker: dagelijks online blijven zoeken naar **gratis** (geen advertentiebudget) manieren om de site betrouwbaar en snel bekend te maken. **Solo-stack-growth-research-routine** (dagelijks, cron): zoekt online naar actuele gratis groeitactieken voor een kleine content-/affiliate-site in deze niche, en voegt concrete, uitvoerbare ideeën met datum toe aan `GROWTH-IDEAS.md` in dit repo — geen ideeën die inloggen bij accounts van de gebruiker vereisen (zie automatiseringsvoorkeur hieronder); die worden wel gelogd maar gemarkeerd als "handmatige actie nodig". Dit is een researchlog, geen gepubliceerde content — committet direct naar `main`, geen PR nodig.
+
 ## Automatiseringsvoorkeur
 Zelfde uitgangspunt als MoneyMaker: zoveel mogelijk automatisch, "hoe meer automatisering hoe beter". Claude kiest de technische invulling zelf, geen meerkeuze voorleggen — **behalve** bij een significante koerswijziging of een echte uitgave (bv. een eigen domeinnaam kopen), dat blijft expliciet checken.
-- **Wel automatiseren**: artikelen schrijven (als concept/PR, zie hierboven), SEO-metadata, interne links, contentkalender bijhouden, research (kan de bestaande dagelijkse research-routine van MoneyMaker hergebruiken/uitbreiden)
+- **Wel automatiseren**: artikelen schrijven (als concept/PR, zie hierboven), SEO-metadata, interne links, contentkalender bijhouden, artikelen actueel houden (freshness-routine, zie hierboven), gratis groei-research (growth-research-routine, zie hierboven; kan de bestaande dagelijkse research-routine van MoneyMaker hergebruiken/uitbreiden)
 - **Niet automatiseren**: direct publiceren van door de routine gegenereerde content naar `main` zonder review; inloggen met echte inloggegevens bij accounts van de gebruiker (affiliate-dashboards e.d.) — ongewijzigd principieel bezwaar
 
 ## Verwijzing

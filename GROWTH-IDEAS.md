@@ -7,7 +7,8 @@ Bijgehouden door de dagelijkse `solo-stack-growth-research`-routine (en handmati
 ## 2026-09-05 — startpunt (handmatig toegevoegd, vóór de eerste automatische research-run)
 
 - **Handmatige actie nodig** — Hergebruik de bestaande MoneyMaker-kanalen als gratis distributie: de Beacons-link-in-bio-pagina (beacons.ai/aipickedit) en de gepauzeerde TikTok/YouTube/Instagram-accounts (@aipickedit) hebben al een — zij het klein — publiek in exact dezelfde niche (AI-tools voor solopreneurs). Eén link naar de blog toevoegen aan de Beacons-pagina kost niets en is direct relevant verkeer. Zie `../MoneyMaker/ACCOUNTS.md` voor de huidige status van die accounts.
-- **Handmatige actie nodig** — Site aanmelden bij Google Search Console én Bing Webmaster Tools, en `sitemap.xml` daar indienen. Beide gratis, maar vereisen inloggen met een Google-/Microsoft-account van de gebruiker.
+- ~~**Handmatige actie nodig** — Site aanmelden bij Google Search Console én Bing Webmaster Tools, en `sitemap.xml` daar indienen.~~ **Gedaan (2026-09-05)**: Google Search Console geverifieerd (HTML-tag-methode) en `sitemap.xml` ingediend. Bing Webmaster Tools staat nog open — kan trouwens met één klik geïmporteerd worden vanuit Search Console, dus dat is nu weinig extra moeite.
+- ~~**Handmatige actie nodig** — GoatCounter (bezoekersstatistieken)~~ **Gedaan (2026-09-05)**: live op alle pagina's, dashboard op solo-stack-blog.goatcounter.com.
 - **Direct uitvoerbaar** — Content zo schrijven dat hij ook goed scoort in AI-antwoordmachines (ChatGPT-zoeken, Perplexity, Google AI Overviews): duidelijke directe antwoorden vroeg in het artikel, FAQ-structuur, geciteerde bronnen — dit doen we al via de schrijfstijl-eisen in CLAUDE.md.
 
 ## Regels voor de routine

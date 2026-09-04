@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://johan1974.github.io/solo-stack-blog/sitemap.xml

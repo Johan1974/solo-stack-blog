@@ -22,11 +22,19 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 - [ ] FAQ-sectie aanwezig die op echte zoekvragen lijkt
 - [ ] Minimaal één interne link naar een gerelateerd artikel (pillar ↔ spoke)
 - [ ] Meta description is uniek per artikel en niet gekopieerd van een ander artikel
+- [ ] `<link rel="canonical">` naar de eigen `https://johan1974.github.io/solo-stack-blog/...`-URL
+- [ ] Open Graph + Twitter-meta aanwezig (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:url`, `twitter:card`, `twitter:title`, `twitter:description`) met dezelfde titel/description als de `<title>`/meta description
+- [ ] JSON-LD structured data aanwezig: `Article` (headline/author/publisher/datePublished/mainEntityOfPage) én `FAQPage` (met dezelfde vragen als de zichtbare FAQ-sectie)
+- [ ] `<link rel="icon">` naar `../assets/favicon.svg` aanwezig
+- [ ] `<title>` is max. ~60 tekens (Google knipt af rond die lengte) — geen overbodige `| Solo Stack`-toevoeging op artikelpagina's, het doelzoekwoord staat vooraan
+- [ ] `<meta name="robots" content="index, follow">` expliciet aanwezig
+- [ ] Google Fonts geladen via `<link rel="preconnect">` + `<link rel="stylesheet">` in de `<head>`, **niet** via `@import` in `style.css` (dat blokkeert de eerste render en is slecht voor Core Web Vitals)
 
 ## 4. Technisch
 - [ ] Pagina laadt zonder gebroken links (interne links, stylesheet-pad `../style.css`)
 - [ ] Consistent met de bestaande huisstijl (`style.css`, geen losse inline styling die afwijkt)
 - [ ] `CONTENT-CALENDAR.md` is bijgewerkt: status van het item naar `concept, klaar voor review`
+- [ ] Nieuw artikel is toegevoegd aan `sitemap.xml` (root) met de juiste `<loc>` en een `<lastmod>` op de publicatiedatum
 
 ## Uitkomst
 - **Alles akkoord** → PR blijft open, klaar voor de gebruiker om te lezen en te mergen.

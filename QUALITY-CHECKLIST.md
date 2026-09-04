@@ -1,0 +1,33 @@
+# Kwaliteitscheck — vóór elke merge naar main
+
+Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatige review). Elk punt hieronder is een reden om een PR terug te sturen ("changes requested") in plaats van klaar te zetten voor de gebruiker om te mergen.
+
+## 1. Klinkt het menselijk?
+- [ ] Geen rule-of-three-lijstjes ("X, Y, en Z") als stijlmiddel door de hele tekst heen
+- [ ] Geen "it's not just X, it's Y"-constructies
+- [ ] Geen overdreven both-sides-hedging op elk punt
+- [ ] Geen generieke transitiezinnen ("In today's world...", "When it comes to...")
+- [ ] Afwisselende zinslengte, samentrekkingen, een herkenbare mening/stem (Johan), geen neutrale samenvatter-toon
+- [ ] Geen verzonnen first-person testclaims ("I used this for 3 months...") die niet zijn gebeurd
+
+## 2. Klopt het feitelijk en juridisch?
+- [ ] Affiliate-link alleen gebruikt voor tools die goedgekeurd zijn (zie `../MoneyMaker/ACCOUNTS.md`) — anders geen gemonetiseerde link
+- [ ] Disclosure aanwezig, duidelijk, bovenaan het artikel, vóór de content — bij elk artikel met een affiliate-link
+- [ ] Geen concrete prijzen/cijfers genoemd die niet geverifieerd zijn — bij twijfel hedgen ("check current pricing") in plaats van een getal verzinnen
+- [ ] Geen URL's verzonnen — alleen URL's gebruiken die al bevestigd zijn in `../MoneyMaker/ACCOUNTS.md` of dit repo
+
+## 3. SEO-fundamenten aanwezig?
+- [ ] Doelzoekwoord (uit `CONTENT-CALENDAR.md`) zit in: `<title>`, `<meta description>`, H1, en de eerste alinea
+- [ ] Koppenstructuur sluit aan op zoekintentie (vergelijking / review / how-to — niet willekeurige koppen)
+- [ ] FAQ-sectie aanwezig die op echte zoekvragen lijkt
+- [ ] Minimaal één interne link naar een gerelateerd artikel (pillar ↔ spoke)
+- [ ] Meta description is uniek per artikel en niet gekopieerd van een ander artikel
+
+## 4. Technisch
+- [ ] Pagina laadt zonder gebroken links (interne links, stylesheet-pad `../style.css`)
+- [ ] Consistent met de bestaande huisstijl (`style.css`, geen losse inline styling die afwijkt)
+- [ ] `CONTENT-CALENDAR.md` is bijgewerkt: status van het item naar `concept, klaar voor review`
+
+## Uitkomst
+- **Alles akkoord** → PR blijft open, klaar voor de gebruiker om te lezen en te mergen.
+- **Eén of meer punten falen** → reviewer laat een PR-comment achter met de concrete punten, past waar mogelijk zelf de tekst aan, en laat de PR pas op "klaar" zetten als alles akkoord is. Nooit zelf mergen naar `main`.

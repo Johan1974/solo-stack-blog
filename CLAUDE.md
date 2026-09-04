@@ -9,7 +9,7 @@ Net opgezet (2026-09-05). Nog geen artikelen, nog geen hosting geconfigureerd. Z
 ## Kernkeuzes (overgenomen uit MoneyMaker, ongewijzigd door de pivot)
 - **Niche**: AI-tools voor solopreneurs en side-hustlers
 - **Doelgroep**: freelancers/kleine ondernemers/bijverdienste-starters, 20-45 jaar, niet technisch, gebruiken al ChatGPT maar weten niet welke andere tools het waard zijn
-- **Monetisatie**: recurring affiliate-commissie (Systeme.io live — 60% levenslang, Kit-aanmelding loopt, Jasper AI/Descript/Opus Clip later) → later eigen digitale gids (€9-19). Zie `../MoneyMaker/ACCOUNTS.md` voor actuele affiliate-status.
+- **Monetisatie**: recurring affiliate-commissie (Systeme.io live — 60% levenslang, Kit-aanmelding loopt, Jasper AI/Descript/Opus Clip later) → later eigen digitale gids (€9-19). Zie `../MoneyMaker/ACCOUNTS.md` voor actuele affiliate-status. Jasper AI, Kit, Descript en Opus Clip krijgen tot die tijd gewone (niet-affiliate) links naar de tool zelf in artikelen — eerlijk naar de lezer, geen valse steun-suggestie (vastgesteld 2026-09-05). **Periodiek herinneren**: de gebruiker wil regelmatig (bv. maandelijks) een reminder om deze affiliate-aanvragen opnieuw te proberen zodra de situatie verandert (eigen domein, groter publiek) — dit is een handmatige actie (inloggen bij affiliate-platforms), dus Claude kan dit niet zelf automatiseren, alleen actief herinneren wanneer de gebruiker aan dit project werkt.
 - **Content-taal**: artikelen in het Engels (grotere markt), planningsdocumenten (dit bestand, ROADMAP.md) in het Nederlands
 - **Disclosure verplicht**: elk artikel met een affiliate-link krijgt een duidelijke disclosure (NL/EU-reclameregels)
 - **Geen KVK-registratie** zolang er geen structureel inkomen is

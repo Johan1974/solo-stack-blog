@@ -11,7 +11,8 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 - [ ] Geen verzonnen first-person testclaims ("I used this for 3 months...") die niet zijn gebeurd
 
 ## 2. Klopt het feitelijk en juridisch?
-- [ ] Affiliate-link alleen gebruikt voor tools die goedgekeurd zijn (zie `../MoneyMaker/ACCOUNTS.md`) — anders geen gemonetiseerde link
+- [ ] Affiliate-link (met disclosure) alleen gebruikt voor tools die goedgekeurd zijn (zie `../MoneyMaker/ACCOUNTS.md`) — voor overige tools een gewone, niet-gemonetiseerde link naar de officiële site (geen affiliate-claim, maar ook niet ongelinkt laten)
+- [ ] Disclosure-tekst is eerlijk over welke links wél en welke niet gemonetiseerd zijn (geen suggestie van steun/commissie bij een gewone link)
 - [ ] Disclosure aanwezig, duidelijk, bovenaan het artikel, vóór de content — bij elk artikel met een affiliate-link
 - [ ] Geen concrete prijzen/cijfers genoemd die niet geverifieerd zijn — bij twijfel hedgen ("check current pricing") in plaats van een getal verzinnen
 - [ ] Geen URL's verzonnen — alleen URL's gebruiken die al bevestigd zijn in `../MoneyMaker/ACCOUNTS.md` of dit repo

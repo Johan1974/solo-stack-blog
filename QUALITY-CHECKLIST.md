@@ -30,6 +30,7 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 - [ ] `<title>` is max. ~60 tekens (Google knipt af rond die lengte) — geen overbodige `| Solo Stack`-toevoeging op artikelpagina's, het doelzoekwoord staat vooraan
 - [ ] `<meta name="robots" content="index, follow">` expliciet aanwezig
 - [ ] Google Fonts geladen via `<link rel="preconnect">` + `<link rel="stylesheet">` in de `<head>`, **niet** via `@import` in `style.css` (dat blokkeert de eerste render en is slecht voor Core Web Vitals)
+- [ ] GoatCounter-scriptje aanwezig vlak voor `</body>` (zie CLAUDE.md § Gratis technische SEO-basis)
 
 ## 4. Technisch
 - [ ] Pagina laadt zonder gebroken links (interne links, stylesheet-pad `../style.css`)

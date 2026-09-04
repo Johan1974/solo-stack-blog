@@ -36,6 +36,8 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 - [ ] Consistent met de bestaande huisstijl (`style.css`, geen losse inline styling die afwijkt)
 - [ ] `CONTENT-CALENDAR.md` is bijgewerkt: status van het item naar `concept, klaar voor review`
 - [ ] Nieuw artikel is toegevoegd aan `sitemap.xml` (root) met de juiste `<loc>` en een `<lastmod>` op de publicatiedatum
+- [ ] Nieuw artikel is toegevoegd als `<item>` bovenaan `feed.xml` (root) — title/link/guid/description/pubDate
+- [ ] Na merge naar `main`: de nieuwe URL (en gewijzigde `sitemap.xml`) laten oppikken door IndexNow — zie CLAUDE.md § Gratis technische SEO-basis voor de sleutel en het aanroepen van de API. Dit hoeft de schrijver/reviewer-routine zelf niet te doen (die werken op een branch/PR, niet op `main`); Claude doet dit bij het mergen.
 - [ ] Nieuw artikel is toegevoegd aan `articles.json` (root) met `title`, `path`, `category` (één van: Guides, Reviews, Comparisons, How-To, Opinion — zie `CONTENT-CALENDAR.md`-kolom "Type"), `excerpt`, `date` — dit vult automatisch de "Browse by category"-sidebar op de homepage
 - [ ] Nieuw artikel is toegevoegd aan `FRESHNESS-LOG.md` met status "nog niet gecheckt"
 

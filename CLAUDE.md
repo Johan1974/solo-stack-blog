@@ -30,6 +30,8 @@ Kort houden: een paar bullets, geen lang rapport, tenzij de gebruiker om meer de
 ## Auteur-persona
 Niet volledig anoniem, niet volledige identiteit — een voornaam/pseudoniem met een korte bio (bv. "Johan, freelancer die AI-tools test voor andere solopreneurs"). Reden: Google's E-E-A-T-richtlijnen belonen content met een herkenbare, echte schrijver bij software-aanraders — vertrouwen is hier een sterker signaal dan bij faceless social video. Exacte invulling nog te bepalen.
 
+**Bewuste uitzondering — LinkedIn (vastgesteld 2026-09-05)**: het LinkedIn-profiel dat Solo Stack-artikelen deelt (zie `SOCIAL-CHANNELS.md`) toont wél de volledige naam van de gebruiker (Johan Lijffijt). Dit is een bewuste afweging: LinkedIn-persoonlijke-profielen vereisen van nature een echte, herkenbare naam (een Company Page zonder deze eis kost weken tot maanden goedkeuring voor API-toegang), en de gebruiker koos ervoor dit te accepteren. De blog zelf (about.html, artikel-bylines) blijft onveranderd bij "Johan" zonder achternaam.
+
 ## Schrijfstijl (vastgesteld 2026-09-05)
 Elk artikel moet aan twee eisen tegelijk voldoen:
 - **Menselijk, niet "AI-achtig"**: geen rule-of-three-lijstjes, geen "it's not just X, it's Y", geen overdreven both-sides-hedging, geen generieke transitiezinnen. Wissel zinslengte af, gebruik samentrekkingen, laat de auteursstem (Johan) een mening hebben. Reden: Google's E-E-A-T beloont herkenbare, authentieke schrijvers, en de gebruiker wil zelf achter elk artikel kunnen staan — geen gepolijste maar lege AI-tekst.

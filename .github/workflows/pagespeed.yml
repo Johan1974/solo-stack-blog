@@ -78,9 +78,22 @@ jobs:
           entry = "\n".join(lines) + "\n"
 
           path = "PAGESPEED-RESULTS.md"
-          existing = open(path).read() if os.path.exists(path) else "# PageSpeed Insights — daily results\n\nNieuwste bovenaan. Bijgehouden door .github/workflows/pagespeed.yml, gelezen door de solo-stack-growth-research routine (TASK 3).\n\n"
-          header_end = existing.find("\n\n") + 2
-          new_content = existing[:header_end] + entry + existing[header_end:]
+          marker = "<!-- ENTRIES-START -->\n"
+          default_file = (
+              "# PageSpeed Insights — daily results\n\n"
+              "Nieuwste bovenaan. Bijgehouden door .github/workflows/pagespeed.yml, "
+              "gelezen door de solo-stack-growth-research routine (TASK 3).\n\n"
+              + marker
+          )
+          existing = open(path).read() if os.path.exists(path) else default_file
+          if marker not in existing:
+              # Older file without the marker (predates this script version) -
+              # add it right after the title+intro paragraph instead of
+              # guessing with blank-line counting, which put entries in the
+              # wrong place once before.
+              existing = existing.rstrip("\n") + "\n\n" + marker
+          insert_at = existing.index(marker) + len(marker)
+          new_content = existing[:insert_at] + entry + existing[insert_at:]
           with open(path, "w") as f:
               f.write(new_content)
 

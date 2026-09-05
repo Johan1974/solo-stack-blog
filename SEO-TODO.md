@@ -24,4 +24,11 @@ Tools die **wel** waardevol zijn maar een (gratis) account vereisen en dus niet 
 
 ---
 
-*(Nog geen entries — de eerste run van TASK 3 vult dit bestand.)*
+## 2026-09-05 — eerste handmatige audit (door Claude, vóór de eerste routine-run)
+
+- **Opgelost (2026-09-05)**: `<title>`/`og:title`/`twitter:title` van `articles/jasper-ai-review.html` weken af van de H1 ("Worth It for Solopreneurs" vs. H1's "Is It Worth It ... for Solopreneur Content") — aangepast naar "Jasper AI Review: Is It Worth It in 2026?" zodat title en H1 weer consistent zijn.
+- **Open — PageSpeed Insights nog niet gedraaid**: de gedeelde sandbox-omgeving heeft 0 gratis PageSpeed-quota zonder eigen API-key (HTTP 429 "Quota exceeded"). Handmatige actie nodig: gratis Google API-key aanmaken via [Google Cloud Console](https://console.cloud.google.com/) (PageSpeed Insights API inschakelen, geen creditcard nodig voor dit quotum) zodat de dagelijkse routine hier daadwerkelijk mee kan auditen.
+- **Open — geen `og:image`/`twitter:image` op enige pagina**: social-media-previews (Reddit/LinkedIn/WhatsApp — precies de kanalen waar net share-knoppen voor zijn toegevoegd) tonen nu geen afbeelding. Vereist een ontworpen afbeelding (1200×630px), geen tooling hiervoor beschikbaar in de huidige sessie — later oppakken.
+- **Open — about.html/contact.html meta descriptions aan de korte kant** (88 resp. 92 tekens): niet fout, maar benutten niet de volle ~155 tekens snippet-ruimte in zoekresultaten. Lage prioriteit.
+- **Gecontroleerd, geen probleem gevonden**: alle interne links resolven, elke pagina heeft precies één H1, geen afbeeldingen dus geen ontbrekende alt-teksten, titellengtes verder allemaal binnen ~60 tekens.
+- Handmatig te checken zodra je tijd hebt: **Ahrefs Webmaster Tools** (Site Audit-rapport, zie hierboven) en **Bing Webmaster Tools → SEO Reports** — beide nog niet geraadpleegd.

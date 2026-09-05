@@ -35,7 +35,7 @@ Site staat live. Structuur:
 
 ## Fase 3 — Monetisatie opschalen
 - [ ] Google AdSense als 2e inkomstenbron naast affiliate
-- [ ] E-maillijst zodra de trigger bereikt is (>1.000 bezoekers/mnd of een artikel dat structureel goed rankt — zie CLAUDE.md)
+- [x] E-maillijst — vervroegd t.o.v. de oorspronkelijke trigger (>1.000 bezoekers/mnd): op verzoek van de gebruiker (2026-09-05) al een passieve inschrijfbox gebouwd (dagelijks/wekelijks te kiezen) via Kit, zodat er stilletjes een lijst opgebouwd wordt vóórdat de trigger bereikt is. Zie `assets/subscribe-widget.js` — gebruikt Kit's eigen, exacte formulier-embed (twee eerdere zelfgebouwde varianten faalden stil). Werkend geverifieerd 2026-09-05.
 - [ ] Eigen digitale gids (€9-19)
 
 ---

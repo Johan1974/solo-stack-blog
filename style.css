@@ -341,6 +341,38 @@ table.compare th{
 .faq dt{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);margin:0 0 6px;}
 .faq dd{margin:0 0 22px;color:var(--ink-dim);}
 
+/* ---- Share row ---- */
+.share-row{
+  margin:44px 0 0;
+  padding-top:32px;
+  border-top:1px solid var(--line);
+}
+.share-row p{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin:0 0 14px;
+}
+.share-links{display:flex;flex-wrap:wrap;gap:10px;}
+.share-links a,
+.share-links button{
+  font-family:var(--mono);
+  font-size:13px;
+  color:var(--ink);
+  background:none;
+  text-decoration:none;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 16px;
+  cursor:pointer;
+  transition:border-color 0.15s ease,color 0.15s ease;
+}
+.share-links a:hover,
+.share-links button:hover{border-color:var(--accent);color:var(--accent);}
+.share-links button.copied{border-color:var(--accent);color:var(--accent);}
+
 /* ---- Contact form ---- */
 #contact-thanks{
   background:var(--bg-frame);

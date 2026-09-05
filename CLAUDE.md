@@ -6,6 +6,16 @@ Tekstuele affiliate-blog in de niche "AI-tools voor solopreneurs en side-hustler
 ## Status
 Net opgezet (2026-09-05). Nog geen artikelen, nog geen hosting geconfigureerd. Zie ROADMAP.md voor de eerste stappen.
 
+## Bij het hervatten van werk aan dit project (vastgesteld 2026-09-05)
+Wanneer de gebruiker de draad weer oppakt met dit project, geef **proactief en beknopt** een "wat moet er vandaag gebeuren"-overzicht vóórdat je aan iets anders begint — de gebruiker hoeft er niet apart om te vragen. Baseer dit op:
+- `SEO-TODO.md` — openstaande technische/on-page-optimalisatiepunten (en welke een handmatige registratie/actie vereisen)
+- `GROWTH-IDEAS.md` — nieuwste "Handmatige actie nodig"-items die nog niet zijn opgepakt
+- `CONTENT-CALENDAR.md` — het eerstvolgende geplande artikel en eventuele PR's van de schrijver-routine die op review wachten
+- `FRESHNESS-LOG.md` — of er een artikel is dat aan een check toe is
+- De periodieke affiliate-herinnering (zie hieronder bij Kernkeuzes) indien van toepassing die maand
+
+Kort houden: een paar bullets, geen lang rapport, tenzij de gebruiker om meer detail vraagt.
+
 ## Kernkeuzes (overgenomen uit MoneyMaker, ongewijzigd door de pivot)
 - **Niche**: AI-tools voor solopreneurs en side-hustlers
 - **Doelgroep**: freelancers/kleine ondernemers/bijverdienste-starters, 20-45 jaar, niet technisch, gebruiken al ChatGPT maar weten niet welke andere tools het waard zijn

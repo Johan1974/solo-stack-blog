@@ -64,26 +64,8 @@
 
     <div>
       <h2>Latest articles</h2>
-      <div class="article-list">
-
-        <a class="article-card" href="articles/best-ai-tools-for-solopreneurs-2026.html">
-          <p class="kicker">Pillar guide</p>
-          <h3>Best AI Tools for Solopreneurs and Side Hustlers (2026)</h3>
-          <p>Five tools worth knowing about if you're running a one-person business — what each one actually does, who it's for, and who should skip it.</p>
-        </a>
-
-        <a class="article-card" href="articles/systeme-io-review.html">
-          <p class="kicker">Tool review</p>
-          <h3>Systeme.io Review: Is It Worth It for Solopreneurs in 2026?</h3>
-          <p>An honest look at the all-in-one funnel, email and course platform — where it genuinely saves you money, and where it shows its limits.</p>
-        </a>
-
-        <a class="article-card" href="articles/jasper-ai-review.html">
-          <p class="kicker">Tool review</p>
-          <h3>Jasper AI Review: Is It Worth It for Solopreneur Content in 2026?</h3>
-          <p>What the AI writing tool actually does well, where it's overkill, and how it stacks up against a general-purpose assistant you already pay for.</p>
-        </a>
-
+      <div class="article-list" id="article-list">
+        <p class="dim-note">Loading…</p>
       </div>
     </div>
 
@@ -106,11 +88,57 @@
 <script>
 (function(){
   var CATEGORY_ORDER = ["Guides", "Reviews", "Comparisons", "How-To", "Opinion"];
+
+  function formatDate(iso){
+    var d = new Date(iso + 'T00:00:00Z');
+    return d.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'});
+  }
+
+  // Newest first: sort by date, and for same-day articles, by the order
+  // they were added to articles.json (later entry = published more recently).
+  function newestFirst(articles){
+    return articles
+      .map(function(a, i){ return {a: a, i: i}; })
+      .sort(function(x, y){
+        return y.a.date.localeCompare(x.a.date) || (y.i - x.i);
+      })
+      .map(function(x){ return x.a; });
+  }
+
   fetch('articles.json')
     .then(function(r){ return r.json(); })
     .then(function(articles){
+      var sorted = newestFirst(articles);
+
+      var list = document.getElementById('article-list');
+      list.innerHTML = '';
+      sorted.forEach(function(a){
+        var card = document.createElement('a');
+        card.className = 'article-card';
+        card.href = a.path;
+
+        var kicker = document.createElement('p');
+        kicker.className = 'kicker';
+        kicker.textContent = a.kicker || a.category;
+        var dateSpan = document.createElement('span');
+        dateSpan.className = 'card-date';
+        dateSpan.textContent = ' · ' + formatDate(a.date);
+        kicker.appendChild(dateSpan);
+        card.appendChild(kicker);
+
+        var h3 = document.createElement('h3');
+        h3.textContent = a.title;
+        card.appendChild(h3);
+
+        var p = document.createElement('p');
+        p.textContent = a.excerpt;
+        card.appendChild(p);
+
+        list.appendChild(card);
+      });
+
       var byCategory = {};
-      articles.forEach(function(a){
+      sorted.forEach(function(a){
         (byCategory[a.category] = byCategory[a.category] || []).push(a);
       });
       var container = document.getElementById('category-index');
@@ -136,6 +164,7 @@
         });
     })
     .catch(function(){
+      document.getElementById('article-list').innerHTML = '';
       document.getElementById('category-index').innerHTML = '';
     });
 })();

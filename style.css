@@ -154,6 +154,10 @@ section.articles h2{
   color:var(--accent);
   margin:0 0 8px;
 }
+.article-card .kicker .card-date{
+  color:var(--ink-dim);
+  letter-spacing:normal;
+}
 .article-card h3{
   font-family:var(--display);
   font-weight:600;

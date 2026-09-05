@@ -21,7 +21,8 @@ Tools die waardevol zijn maar een account vereisen (niet door de routine zelf te
 - Ranking: zet het punt met de beste verhouding impact/moeite bovenaan.
 - Als een punt een échte artikel-inhoudswijziging vereist (niet alleen techniek/metadata), verwijs dan naar de freshness-routine in plaats van het zelf te fixen.
 - Researchlog-achtige wijzigingen aan dit bestand — commit direct naar `main`, geen PR nodig.
+- De account-gebonden tools hierboven (Ahrefs, Bing SEO Reports, Search Console) leveren geen losse "todo"-regel op zolang ze alleen nog niet gecheckt zijn — dat kan de routine toch nooit zelf wegwerken. Pas als een check daar een concreet, zelf te fixen probleem oplevert, wordt dat een regel hieronder.
 
 ---
 
-- Handmatig te checken zodra je tijd hebt: **Ahrefs Webmaster Tools** (Site Audit-rapport) en **Bing Webmaster Tools → SEO Reports** — beide nog niet geraadpleegd sinds opzet (2026-09-05).
+*(Momenteel geen openstaande punten.)*

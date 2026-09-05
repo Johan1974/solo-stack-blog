@@ -1,5 +1,11 @@
 # PageSpeed Insights — daily results
 
+## 2026-09-05 — https://johan1974.github.io/solo-stack-blog/about.html
+
+Scores: performance 91/100, accessibility 100/100, best-practices 100/100, seo 100/100
+
+No issues flagged.
+
 Nieuwste bovenaan. Bijgehouden door `.github/workflows/pagespeed.yml` (draait dagelijks om 06:00 UTC, roteert automatisch over de pagina's), gelezen door de `solo-stack-growth-research`-routine (TASK 3) om concrete actiepunten aan `SEO-TODO.md` toe te voegen.
 
 ## 2026-09-05 — https://johan1974.github.io/solo-stack-blog/

@@ -11,6 +11,9 @@ on:
     - cron: "0 6 * * *"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   pagespeed:
     runs-on: ubuntu-latest

@@ -82,6 +82,9 @@ Nadrukkelijke wens van de gebruiker: dagelijks online blijven zoeken naar **grat
 
 Beide zijn researchlogs, geen gepubliceerde content — committet direct naar `main`, geen PR nodig.
 
+## Secrets en API-keys (vastgesteld 2026-09-05)
+Deze repo is publiek. Elke API-key/secret (bv. de PageSpeed Insights-key) gaat daarom **altijd** in **GitHub repository secrets** (Settings → Secrets and variables → Actions), nooit in een gecommit bestand, nooit in de prompt/config van een Claude-routine (bleek sowieso niet betrouwbaar ondersteund), en nooit los in de chat blijven staan zonder dat er een veilige plek voor is. Een GitHub Action die zo'n secret nodig heeft, gebruikt 'm via `${{ secrets.NAAM }}`; als het verwerkende stuk logica in een Claude-cloudroutine moet zitten (die geen toegang heeft tot GitHub Secrets), splits dan het secret-gebruikende deel af naar een GitHub Action die het resultaat naar een gewoon repo-bestand wegschrijft, en laat de routine dat bestand lezen — zie `.github/workflows/pagespeed.yml` + `PAGESPEED-RESULTS.md` als voorbeeldpatroon. Lokale `.env`-bestanden met een sleutel zijn alleen een tijdelijke overdrachtsplek (nooit committen — staat in `.gitignore`), niet de definitieve opslag.
+
 ## Automatiseringsvoorkeur
 Zelfde uitgangspunt als MoneyMaker: zoveel mogelijk automatisch, "hoe meer automatisering hoe beter". Claude kiest de technische invulling zelf, geen meerkeuze voorleggen — **behalve** bij een significante koerswijziging of een echte uitgave (bv. een eigen domeinnaam kopen), dat blijft expliciet checken.
 - **Wel automatiseren**: artikelen schrijven (als concept/PR, zie hierboven), SEO-metadata, interne links, contentkalender bijhouden, artikelen actueel houden (freshness-routine, zie hierboven), gratis groei-research (growth-research-routine, zie hierboven; kan de bestaande dagelijkse research-routine van MoneyMaker hergebruiken/uitbreiden)

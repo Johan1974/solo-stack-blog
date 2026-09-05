@@ -46,6 +46,10 @@ header.site .wrap{
   gap:16px;
   flex-wrap:wrap;
 }
+@media (max-width:600px){
+  header.site .wrap{flex-direction:column;align-items:flex-start;gap:10px;}
+  .site-nav{gap:16px;}
+}
 .logo{
   display:flex;
   align-items:center;
@@ -280,6 +284,29 @@ table.compare th{
   color:var(--ink-dim);
   border-bottom:2px solid var(--ink);
 }
+/* Below 600px, a wide comparison table just forces sideways scrolling,
+   which is what made it hard to read on a phone — stack each row as a
+   labeled card instead. */
+@media (max-width:600px){
+  .table-wrap{overflow-x:visible;}
+  table.compare{min-width:0;}
+  table.compare thead{display:none;}
+  table.compare,table.compare tbody,table.compare tr,table.compare td{display:block;width:100%;}
+  table.compare tr{margin-bottom:16px;border:1px solid var(--line);border-radius:6px;padding:4px 16px;}
+  table.compare tr:last-child{margin-bottom:0;}
+  table.compare td{border-bottom:1px solid var(--line);padding:10px 0;}
+  table.compare td:last-child{border-bottom:none;}
+  table.compare td::before{
+    content:attr(data-label);
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-bottom:4px;
+  }
+}
 
 .cta-box{
   background:var(--bg-frame);
@@ -305,6 +332,16 @@ table.compare th{
 
 .faq dt{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);margin:0 0 6px;}
 .faq dd{margin:0 0 22px;color:var(--ink-dim);}
+
+/* ---- Small-screen legibility ---- */
+/* Small uppercase, letter-spaced mono labels (kickers, nav, tagline) read fine
+   at desktop distance but get hard to scan at phone size — nudge them up. */
+@media (max-width:480px){
+  .tagline,.site-nav a{font-size:13px;}
+  .article-card .kicker,article.post .kicker{font-size:12px;}
+  .sidebar-cat h4{font-size:12px;}
+  section.articles h2,.sidebar h2{font-size:13px;}
+}
 
 /* ---- Footer ---- */
 footer.site{

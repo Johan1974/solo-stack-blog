@@ -35,6 +35,7 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 ## 4. Technisch
 - [ ] Pagina laadt zonder gebroken links (interne links, stylesheet-pad `../style.css`)
 - [ ] Consistent met de bestaande huisstijl (`style.css`, geen losse inline styling die afwijkt)
+- [ ] Mobielvriendelijk (zie CLAUDE.md § Mobielvriendelijkheid): geen content die alleen via horizontaal scrollen leesbaar is — brede tabellen krijgen `data-label`-attributen op elke `<td>` zodat de bestaande `table.compare`-mobiele kaart-weergave in `style.css` werkt, geen eigen vaste breedtes die het bestaande responsive-gedrag doorbreken
 - [ ] `CONTENT-CALENDAR.md` is bijgewerkt: status van het item naar `concept, klaar voor review`
 - [ ] Nieuw artikel is toegevoegd aan `sitemap.xml` (root) met de juiste `<loc>` en een `<lastmod>` op de publicatiedatum
 - [ ] Nieuw artikel is toegevoegd als `<item>` bovenaan `feed.xml` (root) — title/link/guid/description/pubDate

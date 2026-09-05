@@ -26,6 +26,14 @@ Elk artikel moet aan twee eisen tegelijk voldoen:
 
 Geen fictieve first-person testclaims verzinnen ("ik heb dit 3 maanden gebruikt") als dat niet is gebeurd — dat staat haaks op "erachter kunnen staan". Schrijf vanuit onderzoek/kennis van de tool, niet vanuit verzonnen persoonlijke anekdotes.
 
+## Mobielvriendelijkheid (vastgesteld 2026-09-05 na feedback)
+De site moet op elk apparaat goed leesbaar zijn, niet alleen op desktop. Aanleiding: de gebruiker merkte op dat de site op mobiel slecht leesbaar was (gedrongen header, een vergelijkingstabel die alleen via horizontaal scrollen te lezen was). Concreet betekent dit voor elke huidige en nieuwe pagina:
+- Geen content die alleen via horizontaal scrollen leesbaar is (bv. brede tabellen) — op smalle schermen een gestapelde/kaart-weergave gebruiken in plaats van alleen op `overflow-x:auto` te vertrouwen.
+- Kleine hoofdletter-labels (kickers, nav, tagline) niet kleiner dan comfortabel leesbaar op een telefoon.
+- Header/navigatie moet op smalle schermen kunnen stapelen in plaats van gedrongen op één regel te blijven staan.
+- Dit geldt ook voor de geautomatiseerde schrijver-routine: nieuwe HTML-elementen (tabellen, brede content) volgen dezelfde responsive-patronen als in `style.css` al aanwezig zijn, niet een eigen vaste breedte.
+- Bij twijfel: testen op meerdere breedtes (bv. 360px, 400px, 768px, desktop), niet alleen op desktop-breedte.
+
 ## Contentkalender
 Bijgehouden in `CONTENT-CALENDAR.md` in dit repo: de wachtrij van geplande artikelen (pillar + spokes + vergelijkingen + how-to's), status per item (gepland/concept-klaar-voor-review/gepubliceerd), en het doelzoekwoord per artikel. Dit is de bron van waarheid voor "wat is het volgende artikel" — ook voor de geautomatiseerde dagelijkse routine hieronder.
 

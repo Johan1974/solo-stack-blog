@@ -358,6 +358,9 @@ table.compare th{
 .share-links{display:flex;flex-wrap:wrap;gap:10px;}
 .share-links a,
 .share-links button{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
   font-family:var(--mono);
   font-size:13px;
   color:var(--ink);
@@ -369,9 +372,55 @@ table.compare th{
   cursor:pointer;
   transition:border-color 0.15s ease,color 0.15s ease;
 }
+.share-links svg{flex-shrink:0;}
 .share-links a:hover,
 .share-links button:hover{border-color:var(--accent);color:var(--accent);}
 .share-links button.copied{border-color:var(--accent);color:var(--accent);}
+
+/* ---- Subscribe box ---- */
+.subscribe-box{
+  background:var(--bg-frame);
+  border-radius:6px;
+  padding:28px 28px 30px;
+  margin:44px 0 0;
+}
+.subscribe-box .kicker{margin:0 0 10px;}
+.subscribe-box h3{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:20px;
+  color:var(--ink);
+  margin:0 0 8px;
+}
+.subscribe-box .subscribe-intro,
+.subscribe-box .subscribe-thanks{
+  font-size:14px;
+  color:var(--ink-dim);
+  margin:0 0 18px;
+}
+.subscribe-box .subscribe-thanks b{color:var(--ink);}
+.subscribe-freq{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 14px;}
+.subscribe-freq label{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:14px;
+  color:var(--ink);
+  cursor:pointer;
+}
+.subscribe-row{display:flex;flex-wrap:wrap;gap:10px;}
+.subscribe-row input[type="email"]{
+  flex:1 1 220px;
+  font-family:var(--sans);
+  font-size:15px;
+  color:var(--ink);
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:10px 12px;
+}
+.subscribe-row input[type="email"]:focus{outline:none;border-color:var(--accent);}
+.subscribe-row .btn{border:none;cursor:pointer;flex:0 0 auto;}
 
 /* ---- Contact form ---- */
 #contact-thanks{

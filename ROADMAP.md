@@ -32,6 +32,7 @@ Site staat live. Structuur:
 - [ ] Consistente publicatie, contentvolume opbouwen
 - [ ] Eigen domeinnaam overwegen zodra er traction is — **echte uitgave, eerst expliciet bevestigen**, niet zomaar aanschaffen
 - [ ] Jasper AI/Descript/Opus Clip-affiliate opnieuw proberen zodra er een eigen domein is (loste eerder het "business website"-blokkade-probleem niet op, zie ../MoneyMaker/ACCOUNTS.md)
+- [ ] Google Analytics (GA4) toevoegen — bewust uitgesteld (2026-09-05): vereist tracking-cookies en dus vermoedelijk een cookie-consent-banner (EU), wat nu meer complexiteit toevoegt dan het waard is bij een site van één dag oud. GoatCounter dekt de basis al cookie-vrij. Oppakken zodra er meetbaar verkeer is en de rijkere data (demografie, acquisitiekanalen, conversie-funnels) er echt toe doet — gebruiker gaf aan dat dit "later wel belangrijk wordt".
 
 ## Fase 3 — Monetisatie opschalen
 - [ ] Google AdSense als 2e inkomstenbron naast affiliate

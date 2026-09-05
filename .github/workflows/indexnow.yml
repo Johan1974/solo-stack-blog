@@ -1,0 +1,63 @@
+name: Ping IndexNow
+
+# Notifies Bing/Yandex about new or changed pages right after they publish,
+# instead of waiting for those search engines to discover them on their own.
+# See CLAUDE.md § Gratis technische SEO-basis. The IndexNow key below is a
+# public verification token (also committed as a plain-text file in the repo
+# root), not a secret.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "sitemap.xml"
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Collect changed URLs
+        id: urls
+        run: |
+          HOST="johan1974.github.io"
+          BASE="https://${HOST}/solo-stack-blog"
+
+          CHANGED=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- '*.html' 'sitemap.xml')
+
+          if [ -z "$CHANGED" ]; then
+            echo "urls=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          URLS="[]"
+          while IFS= read -r path; do
+            [ -z "$path" ] && continue
+            if [ "$path" = "index.html" ]; then
+              url="$BASE/"
+            else
+              url="$BASE/$path"
+            fi
+            URLS=$(echo "$URLS" | jq --arg u "$url" '. + [$u]')
+          done <<< "$CHANGED"
+
+          echo "urls<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$URLS" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Ping IndexNow
+        if: steps.urls.outputs.urls != '' && steps.urls.outputs.urls != '[]'
+        run: |
+          curl -s -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json" \
+            -d "$(jq -n \
+                --arg host "johan1974.github.io" \
+                --arg key "c7181b6dcc1a48a2a8858dfaff0cbbcd" \
+                --arg keyLocation "https://johan1974.github.io/solo-stack-blog/c7181b6dcc1a48a2a8858dfaff0cbbcd.txt" \
+                --argjson urlList '${{ steps.urls.outputs.urls }}' \
+                '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}')" \
+            -w "IndexNow response: %{http_code}\n"

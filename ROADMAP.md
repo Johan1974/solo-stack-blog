@@ -7,16 +7,17 @@ Status: net gestart (2026-09-05), pivot vanuit MoneyMaker (video → blog — zi
 - [x] Repo lokaal verbinden (git init + remote + eerste commit/push) — CLAUDE.md + ROADMAP.md staan al live op GitHub
 - [x] Statische site-structuur opgezet (zie "Huidige bouwstatus" hieronder)
 - [x] Auteur-persona bepalen: **voornaam "Johan"** (geen achternaam), korte bio in de stijl "freelancer/solopreneur die AI-tools test voor andere solopreneurs" — voldoende herkenbaar voor Google's E-E-A-T-vertrouwenssignaal, zonder volledige identiteit prijs te geven
-- [ ] GitHub Pages inschakelen (eenmalige handmatige stap door gebruiker — repo Settings → Pages → Source: branch `main`, map `/ (root)`)
+- [x] GitHub Pages inschakelen — live op https://johan1974.github.io/solo-stack-blog/ (geverifieerd 2026-09-05)
 
 ### Huidige bouwstatus (bijgewerkt tijdens de sessie van 2026-09-05)
-Site staat lokaal klaar, nog niet gepusht/live (GitHub Pages moet nog aangezet worden — zie hierboven). Structuur:
+Site staat live. Structuur:
 - `index.html` — homepage: header/logo/tagline, intro + auteur-persona-blok, lijst van artikelen
 - `style.css` — gedeelde stijl. **Bijgewerkt 2026-09-05**: bewust losgekomen van de donkere AIPickedIt/TikTok-huisstijl (`../MoneyMaker/branding/aipickedit-brand-kit.html`) na feedback dat die te rommelig/donker/hard aanvoelde voor een leesblog. Nu een lichte, warme, minder "boxy" opzet: `--bg-page:#FAF8F3`, `--bg-frame:#F3F0E7`, `--ink:#22242E`, `--ink-dim:#6B6E7A`, `--accent:#A85D1D`, `--accent-soft:#E8A33D`, `--line:#E6E1D3`; fonts IBM Plex Sans (body), IBM Plex Mono (labels/meta), **IBM Plex Serif** (koppen, i.p.v. het zware Big Shoulders Display) via Google Fonts. Minder losse kaders: auteursregel en artikellijst zijn nu randloos/lijst-stijl in plaats van elk in een eigen bordered box.
 - `articles/` — map met losse artikel-HTML-bestanden
-- Eerste 2 artikelen **af**:
-  1. `articles/best-ai-tools-for-solopreneurs-2026.html` — pillar-artikel, overzicht van 5 tools (Systeme.io, Jasper AI, Kit, Descript, Opus Clip), linkt door naar de Systeme.io-review. Bevat de Systeme.io-affiliate-link + disclosure (enige tool die al goedgekeurd is, zie ../MoneyMaker/ACCOUNTS.md) — overige 4 tools zonder gemonetiseerde link tot ze goedgekeurd zijn.
+- Artikelen **gepubliceerd**:
+  1. `articles/best-ai-tools-for-solopreneurs-2026.html` — pillar-artikel, overzicht van 5 tools (Systeme.io, Jasper AI, Kit, Descript, Opus Clip), linkt door naar de Systeme.io- en Jasper AI-reviews. Bevat de Systeme.io-affiliate-link + disclosure (enige tool die al goedgekeurd is, zie ../MoneyMaker/ACCOUNTS.md) — overige tools zonder gemonetiseerde link tot ze goedgekeurd zijn.
   2. `articles/systeme-io-review.html` — diepgaande review, affiliate-link + disclosure, linkt terug naar het pillar-artikel.
+  3. `articles/jasper-ai-review.html` — diepgaande review, géén affiliate-link (nog niet goedgekeurd), linkt terug naar het pillar-artikel.
 - Bewuste **SEO-topic-cluster-opzet**: 1 breed pillar-artikel + losse spoke-artikelen die onderling naar elkaar linken.
 - Schrijfstijl-eis vastgesteld tijdens deze sessie: artikelen moeten menselijk/persoonlijk klinken (geen "AI-achtige" patronen) én expliciet met organisch-zoeken-SEO in het achterhoofd geschreven worden — vastgelegd in Claude's geheugen als staande regel voor alle toekomstige content.
 

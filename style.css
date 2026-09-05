@@ -30,6 +30,10 @@ body{
 .layout{display:grid;grid-template-columns:1fr 240px;gap:56px;align-items:start;}
 @media (max-width:760px){
   .layout{grid-template-columns:1fr;}
+  /* The sidebar's left border/padding only make sense next to a column —
+     once it stacks below the article list, switch to a top divider instead
+     of leaving a stray vertical bar and indent with nothing beside it. */
+  .sidebar{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:36px;margin-top:8px;}
 }
 
 a{color:var(--accent);}
@@ -90,7 +94,9 @@ header.site .wrap{
 }
 
 /* ---- Homepage ---- */
-.hero{padding:64px 0 48px;}
+/* longhand on purpose: this element also carries .wrap, whose horizontal
+   padding a `padding: Ypx 0 Zpx` shorthand here would silently zero out */
+.hero{padding-top:64px;padding-bottom:48px;}
 .eyebrow{
   font-family:var(--mono);
   font-size:12px;
@@ -132,7 +138,8 @@ h1{
 .author-line p{margin:0;font-size:14px;color:var(--ink-dim);}
 .author-line p b{color:var(--ink);}
 
-section.articles{padding:8px 0 88px;}
+/* longhand on purpose: this element also carries .wrap-wide, see .hero above */
+section.articles{padding-top:8px;padding-bottom:88px;}
 section.articles h2{
   font-family:var(--mono);
   font-size:12px;
@@ -212,7 +219,8 @@ section.articles h2{
 .dim-note{font-size:13px;color:var(--ink-dim);margin:0;}
 
 /* ---- Article page ---- */
-article.post{padding:56px 0 88px;}
+/* longhand on purpose: this element also carries .wrap, see .hero above */
+article.post{padding-top:56px;padding-bottom:88px;}
 article.post .kicker{
   font-family:var(--mono);
   font-size:12px;

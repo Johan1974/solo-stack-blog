@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Solo Stack</title>
+  <link>https://johan1974.github.io/solo-stack-blog/</link>
+  <description>Honest, practical reviews of AI tools for freelancers, solopreneurs and side-hustlers.</description>
+  <language>en</language>
+  <lastBuildDate>Sat, 05 Sep 2026 00:00:00 GMT</lastBuildDate>
+
+  <item>
+    <title>Systeme.io Review: Is It Worth It for Solopreneurs in 2026?</title>
+    <link>https://johan1974.github.io/solo-stack-blog/articles/systeme-io-review.html</link>
+    <guid>https://johan1974.github.io/solo-stack-blog/articles/systeme-io-review.html</guid>
+    <description>An honest look at the all-in-one funnel, email and course platform.</description>
+    <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Best AI Tools for Solopreneurs and Side Hustlers (2026)</title>
+    <link>https://johan1974.github.io/solo-stack-blog/articles/best-ai-tools-for-solopreneurs-2026.html</link>
+    <guid>https://johan1974.github.io/solo-stack-blog/articles/best-ai-tools-for-solopreneurs-2026.html</guid>
+    <description>Five tools worth knowing about if you're running a one-person business.</description>
+    <pubDate>Fri, 05 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+
+  <item>
+    <title>Jasper AI Review: Is It Worth It for Solopreneurs in 2026?</title>
+    <link>https://johan1974.github.io/solo-stack-blog/articles/jasper-ai-review.html</link>
+    <guid>https://johan1974.github.io/solo-stack-blog/articles/jasper-ai-review.html</guid>
+    <description>What Jasper's brand-voice and campaign templates actually add over a general chatbot.</description>
+    <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+
+</channel>
+</rss>

@@ -45,11 +45,24 @@ Twee stappen, bewust gescheiden (een schrijver reviewt zichzelf niet):
 
 Publiceren blijft dus altijd een expliciete menselijke stap voor routine-gegenereerde content, ook als de kwaliteitscontroleur akkoord geeft.
 
+## Gratis technische SEO-basis (vastgesteld 2026-09-05)
+Op verzoek van de gebruiker: alles wat gratis en zonder account kan om groei/vindbaarheid voor te bereiden, meteen gebouwd in plaats van te wachten:
+- **RSS-feed** (`feed.xml`): elk nieuw artikel krijgt een `<item>` bovenaan, gelinkt via `<link rel="alternate">` in elke pagina-`<head>`.
+- **IndexNow**: sleutelbestand `c7181b6dcc1a48a2a8858dfaff0cbbcd.txt` in de repo-root (inhoud = de sleutel zelf, `c7181b6dcc1a48a2a8858dfaff0cbbcd`) — vereist geen account. Na elke merge naar `main` die een nieuwe of gewijzigde pagina publiceert: `curl -s -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json" -d '{"host":"johan1974.github.io","key":"c7181b6dcc1a48a2a8858dfaff0cbbcd","keyLocation":"https://johan1974.github.io/solo-stack-blog/c7181b6dcc1a48a2a8858dfaff0cbbcd.txt","urlList":["<volledige URL(s) die net gewijzigd zijn>"]}'` — pingt Bing/Yandex direct dat er iets nieuws staat, i.p.v. te wachten tot ze het zelf ontdekken.
+- **`about.html`**: aparte auteurspagina voor het E-E-A-T-vertrouwenssignaal (wie schrijft dit, hoe worden tools gekozen, hoe verdient de site geld) — gelinkt vanuit de header-nav op elke pagina.
+- **GoatCounter** (bezoekersstatistieken, ingesteld 2026-09-05): elke pagina bevat vlak voor `</body>` dit scriptje — nieuwe pagina's (ook door de schrijver-routine) moeten dit meenemen:
+  `<script data-goatcounter="https://solo-stack-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`
+- Dingen die **wel** een (gratis) account van de gebruiker vereisen en dus niet door Claude zelf gezet kunnen worden — zie `GROWTH-IDEAS.md`: Google Search Console, Bing Webmaster Tools.
+
 ## Artikelen actueel houden (vastgesteld 2026-09-05)
 Gepubliceerde artikelen zijn nooit "af" — tool-pricing, features en affiliate-voorwaarden veranderen. **Solo-stack-freshness-routine** (wekelijks, cron): pakt om de beurt één al gepubliceerd artikel, zoekt online naar de huidige staat van de besproken tool(s), en opent een PR met updates als iets is veranderd (prijs, features, een dode link, een tool die niet meer bestaat). Bijgehouden in `FRESHNESS-LOG.md` (welk artikel wanneer voor het laatst gecheckt is, zodat de routine ze roteert in plaats van steeds hetzelfde artikel te pakken). Zelfde publicatieregel als de schrijver-routine: PR, nooit direct naar `main`.
 
 ## Gratis groei/promotie-research (vastgesteld 2026-09-05)
-Nadrukkelijke wens van de gebruiker: dagelijks online blijven zoeken naar **gratis** (geen advertentiebudget) manieren om de site betrouwbaar en snel bekend te maken. **Solo-stack-growth-research-routine** (dagelijks, cron): zoekt online naar actuele gratis groeitactieken voor een kleine content-/affiliate-site in deze niche, en voegt concrete, uitvoerbare ideeën met datum toe aan `GROWTH-IDEAS.md` in dit repo — geen ideeën die inloggen bij accounts van de gebruiker vereisen (zie automatiseringsvoorkeur hieronder); die worden wel gelogd maar gemarkeerd als "handmatige actie nodig". Dit is een researchlog, geen gepubliceerde content — committet direct naar `main`, geen PR nodig.
+Nadrukkelijke wens van de gebruiker: dagelijks online blijven zoeken naar **gratis** (geen advertentiebudget) manieren om de site betrouwbaar en snel bekend te maken. **Solo-stack-growth-research-routine** (dagelijks, cron) doet twee dingen in dezelfde run:
+1. Zoekt online naar actuele gratis groeitactieken voor een kleine content-/affiliate-site in deze niche, en voegt concrete, uitvoerbare ideeën met datum toe aan `GROWTH-IDEAS.md` — geen ideeën die inloggen bij accounts van de gebruiker vereisen (zie automatiseringsvoorkeur hieronder); die worden wel gelogd maar gemarkeerd als "handmatige actie nodig".
+2. Bestudeert dagelijks één populaire/succesvolle blog (in deze niche of een vergelijkbare content-/affiliate-niche) en legt overdraagbare lessen vast in `BLOG-INSPIRATION.md` — niet wat die blog inhoudelijk behandelt, maar wat wij van hun aanpak (koppen, structuur, interne links, contentformats) kunnen overnemen. Vastgesteld 2026-09-05, nadrukkelijke wens van de gebruiker.
+
+Beide zijn researchlogs, geen gepubliceerde content — committet direct naar `main`, geen PR nodig.
 
 ## Automatiseringsvoorkeur
 Zelfde uitgangspunt als MoneyMaker: zoveel mogelijk automatisch, "hoe meer automatisering hoe beter". Claude kiest de technische invulling zelf, geen meerkeuze voorleggen — **behalve** bij een significante koerswijziging of een echte uitgave (bv. een eigen domeinnaam kopen), dat blijft expliciet checken.

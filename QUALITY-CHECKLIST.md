@@ -30,12 +30,15 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 - [ ] `<title>` is max. ~60 tekens (Google knipt af rond die lengte) — geen overbodige `| Solo Stack`-toevoeging op artikelpagina's, het doelzoekwoord staat vooraan
 - [ ] `<meta name="robots" content="index, follow">` expliciet aanwezig
 - [ ] Google Fonts geladen via `<link rel="preconnect">` + `<link rel="stylesheet">` in de `<head>`, **niet** via `@import` in `style.css` (dat blokkeert de eerste render en is slecht voor Core Web Vitals)
+- [ ] GoatCounter-scriptje aanwezig vlak voor `</body>` (zie CLAUDE.md § Gratis technische SEO-basis)
 
 ## 4. Technisch
 - [ ] Pagina laadt zonder gebroken links (interne links, stylesheet-pad `../style.css`)
 - [ ] Consistent met de bestaande huisstijl (`style.css`, geen losse inline styling die afwijkt)
 - [ ] `CONTENT-CALENDAR.md` is bijgewerkt: status van het item naar `concept, klaar voor review`
 - [ ] Nieuw artikel is toegevoegd aan `sitemap.xml` (root) met de juiste `<loc>` en een `<lastmod>` op de publicatiedatum
+- [ ] Nieuw artikel is toegevoegd als `<item>` bovenaan `feed.xml` (root) — title/link/guid/description/pubDate
+- [ ] Na merge naar `main`: de nieuwe URL (en gewijzigde `sitemap.xml`) laten oppikken door IndexNow — zie CLAUDE.md § Gratis technische SEO-basis voor de sleutel en het aanroepen van de API. Dit hoeft de schrijver/reviewer-routine zelf niet te doen (die werken op een branch/PR, niet op `main`); Claude doet dit bij het mergen.
 - [ ] Nieuw artikel is toegevoegd aan `articles.json` (root) met `title`, `path`, `category` (één van: Guides, Reviews, Comparisons, How-To, Opinion — zie `CONTENT-CALENDAR.md`-kolom "Type"), `excerpt`, `date` — dit vult automatisch de "Browse by category"-sidebar op de homepage
 - [ ] Nieuw artikel is toegevoegd aan `FRESHNESS-LOG.md` met status "nog niet gecheckt"
 

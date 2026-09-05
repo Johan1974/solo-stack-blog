@@ -5,6 +5,10 @@ Nieuwste bovenaan. Bijgehouden door `.github/workflows/pagespeed.yml` (draait da
 <!-- ENTRIES-START -->
 ## 2026-09-05 — https://johan1974.github.io/solo-stack-blog/about.html
 
+ERROR: request failed (The read operation timed out)
+
+## 2026-09-05 — https://johan1974.github.io/solo-stack-blog/about.html
+
 Scores: performance 91/100, accessibility 100/100, best-practices 100/100, seo 100/100
 
 No issues flagged.

@@ -12,6 +12,7 @@ Wanneer de gebruiker de draad weer oppakt met dit project, geef **proactief en b
 - `GROWTH-IDEAS.md` — nieuwste "Handmatige actie nodig"-items die nog niet zijn opgepakt
 - `CONTENT-CALENDAR.md` — het eerstvolgende geplande artikel en eventuele PR's van de schrijver-routine die op review wachten
 - `FRESHNESS-LOG.md` — of er een artikel is dat aan een check toe is
+- `SOCIAL-CHANNELS.md` — status van social-mediakanalen (welke lopen al, welke wachten op een handmatige stap van de gebruiker)
 - De periodieke affiliate-herinnering (zie hieronder bij Kernkeuzes) indien van toepassing die maand
 
 Kort houden: een paar bullets, geen lang rapport, tenzij de gebruiker om meer detail vraagt.

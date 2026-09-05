@@ -392,14 +392,12 @@ table.compare th{
   color:var(--ink);
   margin:0 0 8px;
 }
-.subscribe-box .subscribe-intro,
-.subscribe-box .subscribe-thanks{
+.subscribe-box .subscribe-intro{
   font-size:14px;
   color:var(--ink-dim);
   margin:0 0 18px;
 }
-.subscribe-box .subscribe-thanks b{color:var(--ink);}
-.subscribe-freq{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 14px;}
+.subscribe-freq{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 16px;}
 .subscribe-freq label{
   display:flex;
   align-items:center;
@@ -408,9 +406,14 @@ table.compare th{
   color:var(--ink);
   cursor:pointer;
 }
-.subscribe-row{display:flex;flex-wrap:wrap;gap:10px;}
-.subscribe-row input[type="email"]{
-  flex:1 1 220px;
+
+/* Kit's own embedded form markup — Kit's generated <style> block was left
+   out on purpose (it's ~300 lines of default blue-button styling); these
+   rules restyle their (unmodified, working) HTML to match the site instead. */
+.subscribe-kit-slot .formkit-fields{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0;}
+.subscribe-kit-slot .formkit-field{flex:1 1 220px;margin:0;}
+.subscribe-kit-slot .formkit-input{
+  width:100%;
   font-family:var(--sans);
   font-size:15px;
   color:var(--ink);
@@ -419,8 +422,50 @@ table.compare th{
   border-radius:4px;
   padding:10px 12px;
 }
-.subscribe-row input[type="email"]:focus{outline:none;border-color:var(--accent);}
-.subscribe-row .btn{border:none;cursor:pointer;flex:0 0 auto;}
+.subscribe-kit-slot .formkit-input:focus{outline:none;border-color:var(--accent);}
+.subscribe-kit-slot .formkit-submit{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--mono);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  text-decoration:none;
+  background:var(--accent);
+  color:#FFF9EF;
+  padding:12px 22px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  position:relative;
+}
+.subscribe-kit-slot .formkit-submit:hover{background:var(--ink);}
+.subscribe-kit-slot .formkit-submit span{position:relative;z-index:1;}
+.subscribe-kit-slot .formkit-spinner{display:none;}
+.subscribe-kit-slot .formkit-submit[data-active] span{opacity:0;}
+.subscribe-kit-slot .formkit-submit[data-active] .formkit-spinner{
+  display:flex;gap:3px;position:absolute;left:0;right:0;top:0;bottom:0;
+  align-items:center;justify-content:center;
+}
+.subscribe-kit-slot .formkit-spinner div{
+  width:5px;height:5px;border-radius:50%;background:#FFF9EF;opacity:0.6;
+}
+.subscribe-kit-slot .formkit-alert{
+  list-style:none;margin:14px 0 0;padding:12px 16px;
+  border-radius:4px;font-size:14px;
+}
+.subscribe-kit-slot .formkit-alert:empty{display:none;margin:0;padding:0;}
+.subscribe-kit-slot .formkit-alert-success{background:var(--bg-page);border:1px solid var(--accent-soft);color:var(--ink);}
+.subscribe-kit-slot .formkit-alert-error{background:#FDE8E2;border:1px solid #F2643B;color:#9A2F16;}
+.subscribe-kit-slot .formkit-powered-by-convertkit-container{margin:10px 0 0;}
+.subscribe-kit-slot .formkit-powered-by-convertkit{
+  font-family:var(--mono);font-size:11px;color:var(--ink-dim);
+  text-decoration:none;opacity:0.7;
+}
+.subscribe-kit-slot .formkit-powered-by-convertkit:hover{opacity:1;color:var(--accent);}
 
 /* ---- Contact form ---- */
 #contact-thanks{

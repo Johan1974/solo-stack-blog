@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Contact Solo Stack</title>
+<meta name="description" content="Get in touch with Solo Stack — a question, a correction on an article, or a tool suggestion.">
+<link rel="canonical" href="https://johan1974.github.io/solo-stack-blog/contact.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solo Stack">
+<meta property="og:title" content="Contact Solo Stack">
+<meta property="og:description" content="Get in touch with Solo Stack — a question, a correction on an article, or a tool suggestion.">
+<meta property="og:url" content="https://johan1974.github.io/solo-stack-blog/contact.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <span class="mark"><span>S</span></span>
+      <span class="name">Solo Stack</span>
+    </a>
+    <nav class="site-nav">
+      <a href="about.html">About</a>
+      <span class="tagline">AI tools for solopreneurs</span>
+    </nav>
+  </div>
+</header>
+
+<article class="post wrap">
+  <p class="kicker">Contact</p>
+  <h1>Get in touch</h1>
+  <p class="meta">Solo Stack</p>
+
+  <div class="content">
+    <p id="contact-intro">Question about a tool, a correction on something I got wrong, or a suggestion for what to review next — pick the type below so it lands in the right place.</p>
+
+    <p id="contact-thanks" hidden>Thanks — that's sent. I read every message myself and reply from <b>hello.iaskedai@gmail.com</b>, usually within a few days.</p>
+
+    <form id="contact-form" class="contact-form" action="https://formsubmit.co/hello.iaskedai@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Solo Stack contact form">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://johan1974.github.io/solo-stack-blog/contact.html?sent=1">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <label for="cf-name">Name</label>
+      <input id="cf-name" type="text" name="Name" required>
+
+      <label for="cf-email">Email (so I can reply)</label>
+      <input id="cf-email" type="email" name="Email" required>
+
+      <label for="cf-topic">What's this about</label>
+      <select id="cf-topic" name="Topic" required>
+        <option value="">Choose one…</option>
+        <option value="Question about a tool">Question about a tool</option>
+        <option value="Correction on an article">Correction on an article</option>
+        <option value="Tool suggestion">Tool suggestion to review</option>
+        <option value="Business / partnership">Business or partnership inquiry</option>
+        <option value="Something else">Something else</option>
+      </select>
+
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="Message" rows="6" required></textarea>
+
+      <button type="submit" class="btn">Send message →</button>
+    </form>
+  </div>
+</article>
+
+<footer class="site">
+  <div class="wrap">
+    Solo Stack — <a href="contact.html">get in touch</a>. Some links on this site are affiliate links — see individual articles for disclosure.
+  </div>
+</footer>
+
+<script>
+  if (new URLSearchParams(location.search).get('sent') === '1') {
+    document.getElementById('contact-intro').hidden = true;
+    document.getElementById('contact-form').hidden = true;
+    document.getElementById('contact-thanks').hidden = false;
+  }
+</script>
+<script data-goatcounter="https://solo-stack-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

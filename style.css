@@ -341,6 +341,50 @@ table.compare th{
 .faq dt{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink);margin:0 0 6px;}
 .faq dd{margin:0 0 22px;color:var(--ink-dim);}
 
+/* ---- Contact form ---- */
+#contact-thanks{
+  background:var(--bg-frame);
+  border-left:3px solid var(--accent-soft);
+  padding:16px 20px;
+  border-radius:0 4px 4px 0;
+}
+.contact-form{display:grid;gap:6px;max-width:480px;margin-top:28px;}
+.contact-form label{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--ink-dim);
+  margin:14px 0 0;
+}
+.contact-form label:first-of-type{margin-top:0;}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea{
+  font-family:var(--sans);
+  font-size:15px;
+  color:var(--ink);
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:10px 12px;
+  width:100%;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+.contact-form textarea{resize:vertical;font-family:var(--sans);}
+.contact-form .btn{
+  margin-top:22px;
+  border:none;
+  cursor:pointer;
+  justify-self:start;
+}
+
 /* ---- Small-screen legibility ---- */
 /* Small uppercase, letter-spaced mono labels (kickers, nav, tagline) read fine
    at desktop distance but get hard to scan at phone size — nudge them up. */

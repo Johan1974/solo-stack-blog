@@ -136,22 +136,7 @@
       </div>
     </div>
 
-    <div class="subscribe-box">
-      <p class="kicker">Newsletter</p>
-      <h3>Get new reviews by email</h3>
-      <p class="subscribe-intro">Pick how often — no spam, unsubscribe anytime.</p>
-      <p class="subscribe-thanks" hidden>Thanks — check your inbox to confirm your subscription.</p>
-      <form class="subscribe-form" data-daily-form="9884662" data-weekly-form="9884665" method="post" target="kit-subscribe-frame">
-        <div class="subscribe-freq">
-          <label><input type="radio" name="freq" value="daily" checked> Daily — as new reviews go live</label>
-          <label><input type="radio" name="freq" value="weekly"> Weekly digest</label>
-        </div>
-        <div class="subscribe-row">
-          <input type="email" name="email_address" placeholder="you@email.com" required aria-label="Email address">
-          <button type="submit" class="btn">Subscribe</button>
-        </div>
-      </form>
-    </div>
+    <div data-subscribe-widget></div>
 
   </div>
 </article>
@@ -179,22 +164,7 @@ document.querySelectorAll('.copy-link').forEach(function(btn){
   });
 });
 </script>
-<iframe name="kit-subscribe-frame" hidden></iframe>
-<script>
-document.querySelectorAll('.subscribe-form').forEach(function(form){
-  form.addEventListener('submit', function(){
-    var freq = form.querySelector('input[name="freq"]:checked').value;
-    var formId = freq === 'weekly' ? form.dataset.weeklyForm : form.dataset.dailyForm;
-    form.action = 'https://app.convertkit.com/forms/' + formId + '/subscriptions';
-    var box = form.closest('.subscribe-box');
-    setTimeout(function(){
-      box.querySelector('.subscribe-intro').hidden = true;
-      form.hidden = true;
-      box.querySelector('.subscribe-thanks').hidden = false;
-    }, 300);
-  });
-});
-</script>
+<script src="../assets/subscribe-widget.js"></script>
 <script data-goatcounter="https://solo-stack-blog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ Overzicht van welke kanalen gebruikt worden om artikelen te verspreiden, hun sta
 | Bluesky | Nog niet opgezet | — | Genoemd als gratis optie (2026-09-05), geen goedkeuringsproces. Kan met een tweede IFTTT-applet (gratis laag staat 2 actieve applets toe, LinkedIn gebruikt er 1). |
 | Mastodon | Nog niet opgezet | — | Zelfde status als Bluesky — gratis, open API, geen goedkeuring nodig. |
 | @aipickedit (TikTok/YouTube/Instagram) | Gepauzeerd (uit MoneyMaker-periode) | Losstaand, dagelijks gemonitord door de `aipickedit daily TikTok automation research`-routine | Andere niche-insteek (korte video) — leent zich niet goed voor het delen van tekstartikelen. Zie `../MoneyMaker/ACCOUNTS.md` voor volledige status. |
-| Beacons (link-in-bio) | Bestaat, nog niet bijgewerkt met Solo Stack-link | Handmatige actie nodig | Genoemd in `GROWTH-IDEAS.md` (2026-09-05) als quick win: één link naar de blog toevoegen aan de bestaande Beacons-pagina. |
+| Beacons (link-in-bio) | Live — Solo Stack-link toegevoegd (2026-09-06) | Handmatig gedaan door de gebruiker | Link staat bovenaan de Beacons-pagina (beacons.ai/aipickedit), actief en zichtbaar in de preview naast de bestaande Systeme.io-link. |
 
 ## Regels
 - Nieuw kanaal toevoegen aan deze tabel zodra het wordt opgezet of overwogen, ook als het (nog) niet doorgaat — inclusief de reden.

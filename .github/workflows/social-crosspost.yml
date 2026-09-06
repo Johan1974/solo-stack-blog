@@ -42,7 +42,13 @@ jobs:
           import json, os, urllib.request, urllib.error, datetime
           import xml.etree.ElementTree as ET
 
-          STATE_PATH = ".github/social-last-posted.txt"
+          # Each platform tracks its own "last posted" link, independently,
+          # so one platform having already posted an article never blocks
+          # another platform from posting that same article for the first
+          # time (a shared state file caused exactly that bug once).
+          LEGACY_STATE_PATH = ".github/social-last-posted.txt"
+          BLUESKY_STATE_PATH = ".github/social-last-posted-bluesky.txt"
+          MASTODON_STATE_PATH = ".github/social-last-posted-mastodon.txt"
 
           tree = ET.parse("feed.xml")
           item = tree.getroot().find("./channel/item")
@@ -52,16 +58,15 @@ jobs:
 
           link = item.findtext("link", "").strip()
           title = item.findtext("title", "").strip()
-
-          last_posted = ""
-          if os.path.exists(STATE_PATH):
-              last_posted = open(STATE_PATH).read().strip()
-
-          if link == last_posted:
-              print(f"Newest article already posted ({link}), skipping.")
-              raise SystemExit(0)
-
           text = f"New on Solo Stack: {title}\n{link}"
+
+          def read_state(path):
+              return open(path).read().strip() if os.path.exists(path) else ""
+
+          def write_state(path, value):
+              os.makedirs(os.path.dirname(path), exist_ok=True)
+              with open(path, "w") as f:
+                  f.write(value + "\n")
 
           def post_json(url, payload, headers):
               req = urllib.request.Request(
@@ -72,12 +77,20 @@ jobs:
               with urllib.request.urlopen(req, timeout=30) as resp:
                   return json.load(resp)
 
-          posted_anywhere = False
+          # One-time migration from the old shared state file: it was only
+          # ever written after a successful Bluesky post, so treat its value
+          # as Bluesky's baseline and retire the file.
+          if os.path.exists(LEGACY_STATE_PATH) and not os.path.exists(BLUESKY_STATE_PATH):
+              write_state(BLUESKY_STATE_PATH, read_state(LEGACY_STATE_PATH))
+          if os.path.exists(LEGACY_STATE_PATH):
+              os.remove(LEGACY_STATE_PATH)
 
           # --- Bluesky ---
           handle = os.environ.get("BLUESKY_HANDLE", "")
           app_password = os.environ.get("BLUESKY_APP_PASSWORD", "")
-          if handle and app_password:
+          if read_state(BLUESKY_STATE_PATH) == link:
+              print(f"Bluesky: newest article already posted ({link}), skipping.")
+          elif handle and app_password:
               try:
                   session = post_json(
                       "https://bsky.social/xrpc/com.atproto.server.createSession",
@@ -111,7 +124,7 @@ jobs:
                       {"Authorization": f"Bearer {jwt}"},
                   )
                   print("Posted to Bluesky.")
-                  posted_anywhere = True
+                  write_state(BLUESKY_STATE_PATH, link)
               except Exception as e:
                   print(f"Bluesky post failed: {e}")
           else:
@@ -120,7 +133,9 @@ jobs:
           # --- Mastodon ---
           instance = os.environ.get("MASTODON_INSTANCE_URL", "").rstrip("/")
           token = os.environ.get("MASTODON_ACCESS_TOKEN", "")
-          if instance and token:
+          if read_state(MASTODON_STATE_PATH) == link:
+              print(f"Mastodon: newest article already posted ({link}), skipping.")
+          elif instance and token:
               try:
                   post_json(
                       f"{instance}/api/v1/statuses",
@@ -128,27 +143,17 @@ jobs:
                       {"Authorization": f"Bearer {token}"},
                   )
                   print("Posted to Mastodon.")
-                  posted_anywhere = True
+                  write_state(MASTODON_STATE_PATH, link)
               except Exception as e:
                   print(f"Mastodon post failed: {e}")
           else:
               print("Mastodon secrets not set, skipping Mastodon.")
-
-          if posted_anywhere:
-              os.makedirs(".github", exist_ok=True)
-              with open(STATE_PATH, "w") as f:
-                  f.write(link + "\n")
-              print("STATE_CHANGED")
           PYEOF
 
-      - name: Commit updated state file
+      - name: Commit updated state files
         run: |
-          if [ ! -f .github/social-last-posted.txt ]; then
-            echo "Nothing was posted successfully, nothing to commit."
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .github/social-last-posted.txt
-          git diff --cached --quiet || git commit -m "Track latest cross-posted article"
+          git add -A -- .github/
+          git diff --cached --quiet || git commit -m "Track latest cross-posted article per platform"
           git push

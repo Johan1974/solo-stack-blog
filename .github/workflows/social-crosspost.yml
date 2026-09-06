@@ -58,7 +58,10 @@ jobs:
 
           link = item.findtext("link", "").strip()
           title = item.findtext("title", "").strip()
-          text = f"New on Solo Stack: {title}\n{link}"
+
+          HASHTAGS = ["AITools", "Solopreneur", "SideHustle"]
+          hashtags_line = " ".join(f"#{tag}" for tag in HASHTAGS)
+          text = f"New on Solo Stack: {title}\n{link}\n\n{hashtags_line}"
 
           def read_state(path):
               return open(path).read().strip() if os.path.exists(path) else ""
@@ -101,14 +104,24 @@ jobs:
                   jwt = session["accessJwt"]
 
                   text_bytes = text.encode("utf-8")
+                  facets = []
+
                   link_bytes = link.encode("utf-8")
                   byte_start = text_bytes.find(link_bytes)
-                  facets = []
                   if byte_start != -1:
                       facets.append({
                           "index": {"byteStart": byte_start, "byteEnd": byte_start + len(link_bytes)},
                           "features": [{"$type": "app.bsky.richtext.facet#link", "uri": link}],
                       })
+
+                  for tag in HASHTAGS:
+                      tag_bytes = f"#{tag}".encode("utf-8")
+                      tag_start = text_bytes.find(tag_bytes)
+                      if tag_start != -1:
+                          facets.append({
+                              "index": {"byteStart": tag_start, "byteEnd": tag_start + len(tag_bytes)},
+                              "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": tag}],
+                          })
 
                   record = {
                       "$type": "app.bsky.feed.post",

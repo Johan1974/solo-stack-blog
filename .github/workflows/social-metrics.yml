@@ -1,0 +1,106 @@
+name: Daily social media metrics check
+
+# Logs follower counts and post engagement (likes/reposts/replies) for the
+# Bluesky and Mastodon accounts that social-crosspost.yml posts to, so
+# growth is visible over time without needing to check either platform by
+# hand. Both accounts are public, so this reads their public read-only APIs
+# — no login, no secrets, nothing account-bound. See SOCIAL-CHANNELS.md.
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Fetch metrics and log results
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, urllib.request, datetime
+
+          BLUESKY_ACTOR = "solostack74.bsky.social"
+          MASTODON_INSTANCE = "https://mastodon.social"
+          MASTODON_ACCT = "solostack"
+
+          def get_json(url):
+              with urllib.request.urlopen(url, timeout=30) as resp:
+                  return json.load(resp)
+
+          lines = []
+
+          # --- Bluesky ---
+          try:
+              profile = get_json(
+                  "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile"
+                  f"?actor={BLUESKY_ACTOR}"
+              )
+              feed = get_json(
+                  "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed"
+                  f"?actor={BLUESKY_ACTOR}&limit=50"
+              )
+              posts = [f["post"] for f in feed.get("feed", [])]
+              likes = sum(p.get("likeCount", 0) or 0 for p in posts)
+              reposts = sum(p.get("repostCount", 0) or 0 for p in posts)
+              replies = sum(p.get("replyCount", 0) or 0 for p in posts)
+              lines.append(
+                  f"- **Bluesky** (@{BLUESKY_ACTOR}): {profile.get('followersCount', 0)} volgers, "
+                  f"{profile.get('postsCount', 0)} posts — totaal {likes} likes, {reposts} reposts, {replies} replies"
+              )
+          except Exception as e:
+              lines.append(f"- **Bluesky**: check mislukt ({e})")
+
+          # --- Mastodon ---
+          try:
+              account = get_json(
+                  f"{MASTODON_INSTANCE}/api/v1/accounts/lookup?acct={MASTODON_ACCT}"
+              )
+              statuses = get_json(
+                  f"{MASTODON_INSTANCE}/api/v1/accounts/{account['id']}/statuses?limit=40"
+              )
+              favs = sum(s.get("favourites_count", 0) or 0 for s in statuses)
+              reblogs = sum(s.get("reblogs_count", 0) or 0 for s in statuses)
+              replies = sum(s.get("replies_count", 0) or 0 for s in statuses)
+              lines.append(
+                  f"- **Mastodon** (@{MASTODON_ACCT}@{MASTODON_INSTANCE.split('//')[1]}): "
+                  f"{account.get('followers_count', 0)} volgers, {account.get('statuses_count', 0)} posts — "
+                  f"totaal {favs} favorites, {reblogs} boosts, {replies} replies"
+              )
+          except Exception as e:
+              lines.append(f"- **Mastodon**: check mislukt ({e})")
+
+          today = datetime.date.today().isoformat()
+          entry = f"## {today}\n\n" + "\n".join(lines) + "\n\n"
+
+          path = "SOCIAL-METRICS.md"
+          marker = "<!-- ENTRIES-START -->\n"
+          default_file = (
+              "# Social media metrics — Solo Stack Blog\n\n"
+              "Dagelijkse momentopname van volgers en engagement op Bluesky en Mastodon. "
+              "Bijgehouden door .github/workflows/social-metrics.yml. Nieuwste bovenaan.\n\n"
+              + marker
+          )
+          existing = open(path).read() if os.path.exists(path) else default_file
+          if marker not in existing:
+              existing = existing.rstrip("\n") + "\n\n" + marker
+          insert_at = existing.index(marker) + len(marker)
+          new_content = existing[:insert_at] + entry + existing[insert_at:]
+          with open(path, "w") as f:
+              f.write(new_content)
+
+          print("\n".join(lines))
+          PYEOF
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add SOCIAL-METRICS.md
+          git diff --cached --quiet || git commit -m "Daily social media metrics check"
+          git push

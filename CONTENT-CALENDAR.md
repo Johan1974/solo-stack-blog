@@ -9,7 +9,7 @@ Status-waarden: `gepland` → `concept, klaar voor review` (PR open) → `gepubl
 | 1 | Best AI Tools for Solopreneurs and Side Hustlers (2026) | Pillar | best ai tools for solopreneurs | Ja (Systeme.io) | gepubliceerd |
 | 2 | Systeme.io Review: Is It Worth It for Solopreneurs in 2026? | Spoke — review | systeme.io review | Ja (Systeme.io) | gepubliceerd |
 | 3 | Jasper AI Review: Is It Worth It for Solopreneur Content in 2026? | Spoke — review | jasper ai review | Nee (nog niet goedgekeurd, zie ../MoneyMaker/ACCOUNTS.md) | gepubliceerd |
-| 4 | Kit (ConvertKit) Review: Email Marketing for Solopreneurs | Spoke — review | kit convertkit review | Nee (aanvraag loopt) | gepland |
+| 4 | Kit (ConvertKit) Review: Email Marketing for Solopreneurs | Spoke — review | kit convertkit review | Nee (aanvraag loopt) | concept, klaar voor review |
 | 5 | Descript Review: AI Video and Audio Editing for Solo Creators | Spoke — review | descript review | Nee (nog niet goedgekeurd) | gepland |
 | 6 | Opus Clip Review: Turning Long-Form Video into Clips Automatically | Spoke — review | opus clip review | Nee (nog niet goedgekeurd) | gepland |
 | 7 | Systeme.io vs Kit: Which One Should Solopreneurs Actually Use? | Vergelijking | systeme.io vs kit | Ja (Systeme.io) | gepland |

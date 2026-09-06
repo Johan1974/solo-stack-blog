@@ -7,6 +7,7 @@ Houdt bij wanneer elk gepubliceerd artikel voor het laatst gecontroleerd is op a
 | articles/best-ai-tools-for-solopreneurs-2026.html | nog niet gecheckt | — |
 | articles/systeme-io-review.html | nog niet gecheckt | — |
 | articles/jasper-ai-review.html | nog niet gecheckt | — |
+| articles/kit-convertkit-review.html | nog niet gecheckt | — |
 
 ## Regels
 - Nieuw gepubliceerd artikel: hier direct aan toevoegen met "nog niet gecheckt".

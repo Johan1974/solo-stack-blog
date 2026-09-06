@@ -1,0 +1,150 @@
+name: Cross-post new articles to Bluesky and Mastodon
+
+# Whenever feed.xml changes (i.e. a new article was published to main),
+# check whether the newest item is one we haven't posted yet, and if so
+# share it on Bluesky and Mastodon. Both are free, API-driven, and — unlike
+# the earlier LinkedIn plan — don't depend on IFTTT's 2-applet free-tier cap.
+# See SOCIAL-CHANNELS.md and CLAUDE.md § Automatiseringsvoorkeur.
+#
+# Required repo secrets (Settings -> Secrets and variables -> Actions),
+# set once by the user after creating the accounts — see SOCIAL-CHANNELS.md:
+#   BLUESKY_HANDLE          e.g. solostack.bsky.social
+#   BLUESKY_APP_PASSWORD    generated under Bluesky Settings -> App Passwords
+#   MASTODON_INSTANCE_URL   e.g. https://mastodon.social
+#   MASTODON_ACCESS_TOKEN   generated under Preferences -> Development -> New Application
+# Any platform whose secrets are missing is skipped (not failed), so this
+# workflow is safe to merge before both accounts exist.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "feed.xml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  crosspost:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Cross-post newest article if not posted yet
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          MASTODON_INSTANCE_URL: ${{ secrets.MASTODON_INSTANCE_URL }}
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, urllib.request, urllib.error, datetime
+          import xml.etree.ElementTree as ET
+
+          STATE_PATH = ".github/social-last-posted.txt"
+
+          tree = ET.parse("feed.xml")
+          item = tree.getroot().find("./channel/item")
+          if item is None:
+              print("No items in feed.xml, nothing to do.")
+              raise SystemExit(0)
+
+          link = item.findtext("link", "").strip()
+          title = item.findtext("title", "").strip()
+
+          last_posted = ""
+          if os.path.exists(STATE_PATH):
+              last_posted = open(STATE_PATH).read().strip()
+
+          if link == last_posted:
+              print(f"Newest article already posted ({link}), skipping.")
+              raise SystemExit(0)
+
+          text = f"New on Solo Stack: {title}\n{link}"
+
+          def post_json(url, payload, headers):
+              req = urllib.request.Request(
+                  url, data=json.dumps(payload).encode("utf-8"),
+                  headers={"Content-Type": "application/json", **headers},
+                  method="POST",
+              )
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  return json.load(resp)
+
+          posted_anywhere = False
+
+          # --- Bluesky ---
+          handle = os.environ.get("BLUESKY_HANDLE", "")
+          app_password = os.environ.get("BLUESKY_APP_PASSWORD", "")
+          if handle and app_password:
+              try:
+                  session = post_json(
+                      "https://bsky.social/xrpc/com.atproto.server.createSession",
+                      {"identifier": handle, "password": app_password},
+                      {},
+                  )
+                  did = session["did"]
+                  jwt = session["accessJwt"]
+
+                  text_bytes = text.encode("utf-8")
+                  link_bytes = link.encode("utf-8")
+                  byte_start = text_bytes.find(link_bytes)
+                  facets = []
+                  if byte_start != -1:
+                      facets.append({
+                          "index": {"byteStart": byte_start, "byteEnd": byte_start + len(link_bytes)},
+                          "features": [{"$type": "app.bsky.richtext.facet#link", "uri": link}],
+                      })
+
+                  record = {
+                      "$type": "app.bsky.feed.post",
+                      "text": text,
+                      "createdAt": datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
+                  }
+                  if facets:
+                      record["facets"] = facets
+
+                  post_json(
+                      "https://bsky.social/xrpc/com.atproto.repo.createRecord",
+                      {"repo": did, "collection": "app.bsky.feed.post", "record": record},
+                      {"Authorization": f"Bearer {jwt}"},
+                  )
+                  print("Posted to Bluesky.")
+                  posted_anywhere = True
+              except Exception as e:
+                  print(f"Bluesky post failed: {e}")
+          else:
+              print("Bluesky secrets not set, skipping Bluesky.")
+
+          # --- Mastodon ---
+          instance = os.environ.get("MASTODON_INSTANCE_URL", "").rstrip("/")
+          token = os.environ.get("MASTODON_ACCESS_TOKEN", "")
+          if instance and token:
+              try:
+                  post_json(
+                      f"{instance}/api/v1/statuses",
+                      {"status": text},
+                      {"Authorization": f"Bearer {token}"},
+                  )
+                  print("Posted to Mastodon.")
+                  posted_anywhere = True
+              except Exception as e:
+                  print(f"Mastodon post failed: {e}")
+          else:
+              print("Mastodon secrets not set, skipping Mastodon.")
+
+          if posted_anywhere:
+              os.makedirs(".github", exist_ok=True)
+              with open(STATE_PATH, "w") as f:
+                  f.write(link + "\n")
+              print("STATE_CHANGED")
+          PYEOF
+
+      - name: Commit updated state file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/social-last-posted.txt
+          git diff --cached --quiet || git commit -m "Track latest cross-posted article"
+          git push

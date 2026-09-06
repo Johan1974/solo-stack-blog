@@ -84,6 +84,12 @@ jobs:
               "# Social media metrics — Solo Stack Blog\n\n"
               "Dagelijkse momentopname van volgers en engagement op Bluesky en Mastodon. "
               "Bijgehouden door .github/workflows/social-metrics.yml. Nieuwste bovenaan.\n\n"
+              "**Let op — ruwe cijfers, geen gevalideerd publiek**: steekproef op de eerste "
+              "likes (2026-09-06) liet zien dat minstens 1 van de 3 een spam/bot-account was "
+              "(\"Only forward!\"-bio) en de rest buiten de niche zat (geen solopreneurs/AI-tools-"
+              "publiek). Bij deze schaal is elke like/volger dus eerder ruis dan signaal — "
+              "vertrouw op de trend over tijd en op de eigen artikel-traffic (GoatCounter), niet "
+              "op absolute counts hier, tenzij je de accounts erachter zelf steekproefsgewijs checkt.\n\n"
               + marker
           )
           existing = open(path).read() if os.path.exists(path) else default_file

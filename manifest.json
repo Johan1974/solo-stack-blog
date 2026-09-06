@@ -1,0 +1,21 @@
+{
+  "name": "Solo Stack",
+  "short_name": "Solo Stack",
+  "description": "Honest, practical reviews of AI tools for freelancers, solopreneurs and side-hustlers.",
+  "start_url": "https://johan1974.github.io/solo-stack-blog/",
+  "display": "browser",
+  "background_color": "#FAF8F3",
+  "theme_color": "#A85D1D",
+  "icons": [
+    {
+      "src": "https://johan1974.github.io/solo-stack-blog/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "https://johan1974.github.io/solo-stack-blog/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

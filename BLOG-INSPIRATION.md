@@ -6,6 +6,17 @@ Denk aan: hoe ze koppen/titels schrijven, hoe artikelen gestructureerd zijn, hoe
 
 Nieuwste bovenaan.
 
+## 2026-09-06 — Backlinko (Brian Dean)
+
+Backlinko is gekozen omdat het hele model draait om technieken onderbouwen met data — dat vertaalt zich direct naar een klein, vertrouwen-gedreven reviewblog zoals Solo Stack. Overdraagbare lessen:
+
+- **Titelformule in plaats van onderbuikgevoel.** Backlinko's eigen tests laten zien dat titels van 40-60 tekens een aanzienlijk hogere CTR halen, en hun koppen volgen consequent het patroon `[Getal] + krachtwoord + concreet resultaat + jaartal` (bv. "9 Best AI Writing Tools for Freelancers in 2026"). Voor Solo Stack: leg dit patroon vast als vaste regel voor het titelveld in `CONTENT-CALENDAR.md`, zodat de schrijver-routine niet afdrijft naar vage titels.
+- **Antwoord-eerst onder elke H2.** Elke tussenkop opent met één directe antwoordzin op de impliciete vraag, pas daarna volgt de uitwerking — goed scanbaar voor mensen én precies wat AI-antwoordmachines nodig hebben om te citeren (sluit direct aan op de bestaande GEO-aanpak in dit bestand/CLAUDE.md). Kandidaat om als expliciete regel aan `QUALITY-CHECKLIST.md` toe te voegen.
+- **Wederzijdse hub-en-spoke-links.** Backlinko's pillar-pagina's linken naar elke losse cluster-post, en — belangrijker — elke cluster-post linkt ook terug naar de hub, niet alleen naar zusterartikelen. Solo Stack's pillar+spoke-opzet zou deze link in beide richtingen moeten afdwingen, niet alleen spoke→pillar (wat nu al gebeurt).
+- **Diepgang boven versplinteren.** Hun data (77% meer backlinks voor posts van 3000+ woorden) komt voort uit het in één volledige pagina behandelen van prijs, alternatieven, doelgroep én kanttekeningen, in plaats van dat op te knippen in meerdere dunne posts. Voor Solo Stack: elke tool-review blijft het complete antwoord (prijs + use case + eerlijke beperkingen + vergelijking) in één artikel.
+- **Zichtbare methodologie als vertrouwensanker.** Backlinko publiceert hoe het tot zijn data/rangschikkingen komt en linkt daarnaar vanuit artikelen. Voor `about.html`: een kort, concreet "hoe we tools kiezen en beoordelen"-stuk, vanuit elke review gelinkt — een goedkoop E-E-A-T-signaal, juist relevant omdat Solo Stack geen langdurige hands-on tests kan claimen. (Sluit aan op de eerdere Wirecutter-les hieronder over een aparte "how we make money"-pagina — dit zou dezelfde sectie op `about.html` kunnen zijn.)
+- **Gratis licht "linkmagneet"-asset.** In plaats van Backlinko's volledige gratis SEO-tools: een kleinschalige variant zoals een eenvoudige vergelijkingschecklist of beslisboom per niche-vraag zou backlinks/shares kunnen opleveren zonder dat er software gebouwd hoeft te worden.
+
 ## 2026-09-05 — Wirecutter (The New York Times)
 
 Wirecutter is precies het E-E-A-T-vraagstuk waar Solo Stack ook mee worstelt (vertrouwen opbouwen rond affiliate-aanbevelingen voor tools/producten die je niet fysiek in huis hebt getest), maar dan door een van de grootste affiliate-reviewsites ter wereld opgelost. Overdraagbare lessen:

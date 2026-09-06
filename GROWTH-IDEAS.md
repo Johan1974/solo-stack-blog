@@ -4,6 +4,13 @@ Bijgehouden door de dagelijkse `solo-stack-growth-research`-routine (en handmati
 - **Direct uitvoerbaar** — kan zonder in te loggen bij een account van de gebruiker
 - **Handmatige actie nodig** — vereist dat de gebruiker zelf inlogt/actie onderneemt (zie CLAUDE.md § Automatiseringsvoorkeur — Claude logt hier nooit zelf in)
 
+## 2026-09-06 — automatische research-run
+
+- **Direct uitvoerbaar** — Dien een pull request in bij een actief onderhouden GitHub "awesome-list"-directory voor AI-tools, zoals `best-of-ai/ai-directories`, `eudk/awesome-ai-tools` of `ikaijua/Awesome-AITools`: deze lijsten linken vaak ook door naar reviewsites (niet alleen naar de tools zelf) en leveren een dofollow-backlink op van een repo met hoge domeinautoriteit. Gebruikt hetzelfde GitHub-account/workflow als dit repo, dus geen nieuw account nodig — wel een losse PR tegen andermans repo, met kans op afwijzing door de maintainer.
+- **Handmatige actie nodig** — Cross-post (een verkorte versie van) artikelen naar **Dev.to**, met het `canonical_url`-frontmatter-veld ingesteld op de originele johan1974.github.io-pagina. Dev.to heeft een hoge domeinautoriteit, eigen lezersverkeer, en wordt snel geïndexeerd; door `canonical_url` te gebruiken gaat alle SEO-waarde naar de originele pagina zonder duplicate-content-risico. Vereist het eenmalig aanmaken van een Dev.to-account.
+- **Handmatige actie nodig** — Beantwoord relevante vragen op **Quora** (bv. "What are the best AI tools for solo entrepreneurs in 2026?") met een eerlijk, inhoudelijk antwoord en een link naar het specifieke Solo Stack-artikel dat het antwoord onderbouwt. Quora-content wordt in 2026 ook opgepikt door AI-antwoordmachines (o.a. via Poe-integratie), dus dit telt zowel als directe doorverwijzing als als GEO-citatiebron. Vereist een Quora-account.
+- **Handmatige actie nodig** — Zet een **Pinterest-account** op voor vergelijkings-/roundup-content ("beste AI-tool voor X"). Pinterest functioneert in 2026 meer als een visuele zoekmachine dan als sociaal netwerk, en pins voor dit soort content blijven maandenlang verkeer opleveren in plaats van na een paar dagen weg te zakken (in tegenstelling tot een TikTok/Instagram-feed). Los van de al genoemde gepauzeerde @aipickedit-kanalen — dit zou een nieuw, apart account zijn.
+
 ## 2026-09-05 — extra ronde tijdens sessie (op verzoek van de gebruiker)
 
 - **Direct uitvoerbaar** — Meld je (gratis, alleen e-mail) aan bij **"Source of Sources"**, de journalisten-queryservice die HARO opvolgde na de sluiting van Connectively. Journalisten vragen dagelijks om bronnen voor artikelen; reageer alleen op vragen die echt raken aan AI-tools/freelancen/side-hustles voor een kans op een vermelding + backlink in een echte publicatie. Geen account nodig, puur e-mail.

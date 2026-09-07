@@ -4,6 +4,10 @@ Bijgehouden door de dagelijkse `solo-stack-growth-research`-routine (en handmati
 - **Direct uitvoerbaar** — kan zonder in te loggen bij een account van de gebruiker
 - **Handmatige actie nodig** — vereist dat de gebruiker zelf inlogt/actie onderneemt (zie CLAUDE.md § Automatiseringsvoorkeur — Claude logt hier nooit zelf in)
 
+## 2026-09-07 — handmatige sessie: uitvoerklare content voorbereid
+
+- **Voor de gebruiker, nog uit te voeren** — Claude heeft voor de meest kansrijke "Handmatige actie nodig"-items hieronder de content al kant-en-klaar gemaakt (aanmeldvelden, een Dev.to-crosspost van het pillar-artikel met `canonical_url`, een Quora-antwoord, en e-mailsjablonen voor nieuwsbrief-swap/gastpost-outreach), zodat alleen het plak- en verstuurwerk overblijft: **[Solo Stack Distribution Kit](https://claude.ai/code/artifact/9efd0b16-7d7f-4f56-9452-a36b0f9a7b6a)** (Claude-artifact, met voortgangs-checkbox per item, lokaal in de browser bewaard). Dekt: Feedspot, Blogarama, Source of Sources, Dev.to, Quora, Bloglovin' (alleen stappen, code komt pas na start van de claim), Reddit (alleen richtlijnen, per post maatwerk nodig). Pinterest bewust nog buiten beschouwing gelaten (groter project: nieuw account + pin-graphics per artikel).
+
 ## 2026-09-07 — automatische research-run
 
 - **Handmatige actie nodig** — Zoek per subreddit specifiek naar het wekelijkse "vrije" zelfpromotiedraadje (bv. "Self-Promotion Saturday", "Feedback Friday", "Show and tell" in subreddits als r/SomethingImade, r/GrowMyBusiness, r/EntrepreneurRideAlong, r/roastmystartup) en reageer dáár met een link, in plaats van een losse topic-post te openen. Aanvulling op de al genoemde subreddit-tactiek (2026-09-05): 2026-onderzoek naar Reddit-moderatie laat zien dat spamdetectie zo'n 40% accurater is geworden dan in 2025 en dat 34% van de onderzochte subreddits zelfpromotie inmiddels helemaal verbiedt (o.a. r/SaaS) — een losse post buiten zo'n aangewezen draad wordt dus sneller verwijderd of shadowbanned dan voorheen. Vereist een Reddit-account en per subreddit menselijke beoordeling.

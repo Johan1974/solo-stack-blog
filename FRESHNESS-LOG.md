@@ -4,7 +4,7 @@ Houdt bij wanneer elk gepubliceerd artikel voor het laatst gecontroleerd is op a
 
 | Artikel | Laatst gecheckt | Resultaat |
 |---|---|---|
-| articles/best-ai-tools-for-solopreneurs-2026.html | nog niet gecheckt | — |
+| articles/best-ai-tools-for-solopreneurs-2026.html | 2026-09-07 | geen wijzigingen nodig — Systeme.io free plan (funnels/email/1 course), Jasper AI, Kit, Descript en Opus Clip beschrijvingen kloppen nog met de huidige stand van zaken |
 | articles/systeme-io-review.html | nog niet gecheckt | — |
 | articles/jasper-ai-review.html | nog niet gecheckt | — |
 | articles/kit-convertkit-review.html | nog niet gecheckt | — |

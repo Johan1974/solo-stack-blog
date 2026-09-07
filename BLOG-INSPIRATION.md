@@ -6,6 +6,15 @@ Denk aan: hoe ze koppen/titels schrijven, hoe artikelen gestructureerd zijn, hoe
 
 Nieuwste bovenaan.
 
+## 2026-09-07 — Zapier Blog ("Best apps" roundups)
+
+Zapier is gekozen omdat hun "best apps for X"-roundups qua format vrijwel identiek zijn aan wat Solo Stack doet (tool vergelijken, aanbevelen op basis van gebruikssituatie), maar dan op een schaal van miljoenen maandelijkse lezers. Overdraagbare lessen:
+
+- **Vaste, gepubliceerde testmethodologie per categorie.** Zapier bepaalt vooraf per tool-categorie wat er écht toe doet (bv. "aanpasbaarheid" voor agenda-apps, "databronnen" voor tool-builders), test elke app tegen diezelfde criteria, en heeft die methodologie zelf gepubliceerd op een aparte "How We Select Apps"-pagina waarnaar vanuit artikelen gelinkt wordt. Voor Solo Stack: sluit direct aan op de Backlinko-les hieronder over zichtbare methodologie, maar concreter — een vaste sectie "Hoe we deze categorie beoordelen" per tool-type (funnel-tools, e-mail-tools, schrijf-tools) zou dezelfde criteria consistent toepassen in plaats van ad-hoc per review.
+- **Afsluitende feiten-bullets in plaats van lopende tekst.** Elke Zapier-roundup eindigt een tool-bespreking met een korte bullet-lijst: prijs, belangrijkste features, ondersteunde platforms. Dat is scanbaar voor mensen én makkelijk te extraheren voor AI-antwoordmachines (sluit aan op de bestaande GEO-aanpak). Solo Stack's reviews hebben al een "Pricing, in plain terms"-sectie, maar die staat in lopende tekst — een bullet-blok zou dezelfde info beter scanbaar maken.
+- **Categorie-hubpagina's die naar losse roundups linken, en omgekeerd.** De "/blog/all-articles/best-apps/"-hub verzamelt alle roundups per categorie; elke losse roundup linkt op zijn beurt terug naar de bredere categoriepagina. Dit is dezelfde wederzijdse hub-en-spoke-link die bij Backlinko hieronder al genoemd staat, maar dan toegepast op een categorie-overzicht in plaats van één pillar-artikel — voor Solo Stack zou dit betekenen dat de sidebar-categorie-index op de homepage (Guides/Reviews) op termijn een eigen linkbare pagina per categorie kan worden, niet alleen een lijst in de sidebar.
+- **Reële, end-to-end test in plaats van een feature-vergelijking op papier.** Zapier test elke app zoals een echte gebruiker: aanmelden, kernfuncties gebruiken, support benaderen — en legt dat vast in spreadsheets tegen vooraf vastgestelde criteria. Solo Stack kan dit niet 1-op-1 kopiëren (geen tijd voor hands-on tests per tool), maar de discipline van "criteria vooraf vastleggen per categorie, dan pas beoordelen" is ook zonder eigen test toepasbaar en voorkomt dat beoordelingen ad-hoc aanvoelen.
+
 ## 2026-09-06 — Backlinko (Brian Dean)
 
 Backlinko is gekozen omdat het hele model draait om technieken onderbouwen met data — dat vertaalt zich direct naar een klein, vertrouwen-gedreven reviewblog zoals Solo Stack. Overdraagbare lessen:

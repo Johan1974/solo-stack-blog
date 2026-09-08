@@ -1,10 +1,10 @@
-name: Cross-post new articles to Bluesky and Mastodon
+name: Cross-post new articles to Bluesky, Mastodon and Dev.to
 
 # Whenever feed.xml changes (i.e. a new article was published to main),
 # check whether the newest item is one we haven't posted yet, and if so
-# share it on Bluesky and Mastodon. Both are free, API-driven, and — unlike
-# the earlier LinkedIn plan — don't depend on IFTTT's 2-applet free-tier cap.
-# See SOCIAL-CHANNELS.md and CLAUDE.md § Automatiseringsvoorkeur.
+# share it on Bluesky, Mastodon and Dev.to. All three are free, API-driven,
+# and — unlike the earlier LinkedIn plan — don't depend on IFTTT's 2-applet
+# free-tier cap. See SOCIAL-CHANNELS.md and CLAUDE.md § Automatiseringsvoorkeur.
 #
 # Required repo secrets (Settings -> Secrets and variables -> Actions),
 # set once by the user after creating the accounts — see SOCIAL-CHANNELS.md:
@@ -12,8 +12,9 @@ name: Cross-post new articles to Bluesky and Mastodon
 #   BLUESKY_APP_PASSWORD    generated under Bluesky Settings -> App Passwords
 #   MASTODON_INSTANCE_URL   e.g. https://mastodon.social
 #   MASTODON_ACCESS_TOKEN   generated under Preferences -> Development -> New Application
+#   DEVTO_API_KEY           generated under Dev.to Settings -> Extensions -> DEV API Keys
 # Any platform whose secrets are missing is skipped (not failed), so this
-# workflow is safe to merge before both accounts exist.
+# workflow is safe to merge before all accounts exist.
 
 on:
   push:
@@ -161,6 +162,94 @@ jobs:
                   print(f"Mastodon post failed: {e}")
           else:
               print("Mastodon secrets not set, skipping Mastodon.")
+          PYEOF
+
+      - name: Install Dev.to cross-post dependencies
+        run: pip install --quiet beautifulsoup4 markdownify
+
+      - name: Cross-post newest article to Dev.to if not posted yet
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, urllib.request, urllib.parse
+          import xml.etree.ElementTree as ET
+          from bs4 import BeautifulSoup
+          from markdownify import markdownify
+
+          DEVTO_STATE_PATH = ".github/social-last-posted-devto.txt"
+          TAGS = ["ai", "solopreneur", "sidehustle"]
+
+          def read_state(path):
+              return open(path).read().strip() if os.path.exists(path) else ""
+
+          def write_state(path, value):
+              os.makedirs(os.path.dirname(path), exist_ok=True)
+              with open(path, "w") as f:
+                  f.write(value + "\n")
+
+          tree = ET.parse("feed.xml")
+          item = tree.getroot().find("./channel/item")
+          if item is None:
+              print("No items in feed.xml, nothing to do.")
+              raise SystemExit(0)
+
+          link = item.findtext("link", "").strip()
+          title = item.findtext("title", "").strip()
+
+          api_key = os.environ.get("DEVTO_API_KEY", "")
+          if read_state(DEVTO_STATE_PATH) == link:
+              print(f"Dev.to: newest article already posted ({link}), skipping.")
+          elif not api_key:
+              print("Dev.to secret not set, skipping Dev.to.")
+          else:
+              try:
+                  # The feed link is the canonical johan1974.github.io URL; the
+                  # matching local file is the same path relative to the repo root.
+                  local_path = urllib.parse.urlsplit(link).path.split("solo-stack-blog/", 1)[-1]
+                  with open(local_path, encoding="utf-8") as f:
+                      soup = BeautifulSoup(f.read(), "html.parser")
+
+                  content = soup.select_one("div.content")
+                  if content is None:
+                      raise RuntimeError(f"No div.content found in {local_path}")
+
+                  # Drop elements that only make sense on the original page
+                  # (share buttons, the newsletter widget, analytics script).
+                  for selector in [".share-row", "[data-subscribe-widget]", "script"]:
+                      for el in content.select(selector):
+                          el.decompose()
+
+                  # Relative links (internal nav, other articles) need to become
+                  # absolute URLs once this content lives on a different domain.
+                  for a in content.find_all("a", href=True):
+                      a["href"] = urllib.parse.urljoin(link, a["href"])
+
+                  body = markdownify(str(content), heading_style="ATX").strip()
+                  body_markdown = (
+                      f"*Originally published on [Solo Stack]({link}).*\n\n{body}"
+                  )
+
+                  req = urllib.request.Request(
+                      "https://dev.to/api/articles",
+                      data=json.dumps({
+                          "article": {
+                              "title": title,
+                              "body_markdown": body_markdown,
+                              "published": True,
+                              "tags": TAGS,
+                              "canonical_url": link,
+                          }
+                      }).encode("utf-8"),
+                      headers={"Content-Type": "application/json", "api-key": api_key},
+                      method="POST",
+                  )
+                  with urllib.request.urlopen(req, timeout=30) as resp:
+                      result = json.load(resp)
+                  print(f"Posted to Dev.to: {result.get('url')}")
+                  write_state(DEVTO_STATE_PATH, link)
+              except Exception as e:
+                  print(f"Dev.to post failed: {e}")
           PYEOF
 
       - name: Commit updated state files

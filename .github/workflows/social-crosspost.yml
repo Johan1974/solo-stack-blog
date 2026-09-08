@@ -241,7 +241,13 @@ jobs:
                               "canonical_url": link,
                           }
                       }).encode("utf-8"),
-                      headers={"Content-Type": "application/json", "api-key": api_key},
+                      headers={
+                          "Content-Type": "application/json",
+                          "api-key": api_key,
+                          # Dev.to's bot protection 403s the default "Python-urllib/x.y"
+                          # user agent, so identify as a real (if scripted) client.
+                          "User-Agent": "solo-stack-blog-crosspost/1.0 (+https://johan1974.github.io/solo-stack-blog/)",
+                      },
                       method="POST",
                   )
                   with urllib.request.urlopen(req, timeout=30) as resp:

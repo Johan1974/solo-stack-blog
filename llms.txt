@@ -14,6 +14,7 @@
 - [Jasper AI Review](https://johan1974.github.io/solo-stack-blog/articles/jasper-ai-review.html): Is the AI writing tool worth it for solopreneur content? Where it earns its price tag versus a general-purpose assistant, and where it's overkill.
 - [Kit (ConvertKit) Review](https://johan1974.github.io/solo-stack-blog/articles/kit-convertkit-review.html): Is the creator-focused email platform worth it for solopreneurs, or does an all-in-one tool cover the same need for less?
 - [Descript Review](https://johan1974.github.io/solo-stack-blog/articles/descript-review.html): Is the transcript-based AI editing tool worth it for solo creators in 2026? What it does well, where it falls short, and who should skip it.
+- [Opus Clip Review](https://johan1974.github.io/solo-stack-blog/articles/opus-clip-review.html): Is the AI video-clipping tool worth it in 2026? What it does well, where it falls short, and who should skip it.
 
 ## Notes
 

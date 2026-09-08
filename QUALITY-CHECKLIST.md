@@ -29,7 +29,7 @@ Checklist voor de kwaliteitscontroleur-routine (en voor Claude tijdens handmatig
 - [ ] Zichtbare **"Last updated"-datumstempel** in de meta-regel (naast "By Johan · Solo Stack"), gelijk aan `dateModified` — zie CLAUDE.md § Artikelen actueel houden
 - [ ] `<link rel="icon">` naar `../assets/favicon.svg` aanwezig
 - [ ] `<title>` is max. ~60 tekens (Google knipt af rond die lengte) — geen overbodige `| Solo Stack`-toevoeging op artikelpagina's, het doelzoekwoord staat vooraan
-- [ ] `<meta name="robots" content="index, follow">` expliciet aanwezig
+- [ ] `<meta name="robots" content="index, follow, max-image-preview:large">` expliciet aanwezig (de `max-image-preview:large`-toevoeging maakt de pagina in aanmerking voor grote thumbnails in Google Discover/Zoeken)
 - [ ] Google Fonts geladen via `<link rel="preconnect">` + `<link rel="stylesheet">` in de `<head>`, **niet** via `@import` in `style.css` (dat blokkeert de eerste render en is slecht voor Core Web Vitals)
 - [ ] GoatCounter-scriptje aanwezig vlak voor `</body>` (zie CLAUDE.md § Gratis technische SEO-basis)
 

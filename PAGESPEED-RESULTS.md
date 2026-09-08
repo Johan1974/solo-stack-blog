@@ -3,6 +3,14 @@
 Nieuwste bovenaan. Bijgehouden door `.github/workflows/pagespeed.yml` (draait dagelijks om 06:00 UTC, roteert automatisch over de pagina's), gelezen door de `solo-stack-growth-research`-routine (TASK 3) om concrete actiepunten aan `SEO-TODO.md` toe te voegen.
 
 <!-- ENTRIES-START -->
+## 2026-09-08 — https://johan1974.github.io/solo-stack-blog/articles/best-ai-tools-for-solopreneurs-2026.html
+
+Scores: performance 91/100, accessibility 92/100, best-practices 100/100, seo 100/100
+
+Issues flagged:
+- Background and foreground colors do not have a sufficient contrast ratio.
+- `<dl>`'s do not contain only properly-ordered `<dt>` and `<dd>` groups, `<script>`, `<template>` or `<div>` elements.
+
 ## 2026-09-07 — https://johan1974.github.io/solo-stack-blog/
 
 Scores: performance 91/100, accessibility 100/100, best-practices 100/100, seo 100/100

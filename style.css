@@ -384,7 +384,7 @@ table.compare th{
   padding:28px 28px 30px;
   margin:44px 0 0;
 }
-.subscribe-box .kicker{margin:0 0 10px;}
+.subscribe-box p.kicker{margin:0 0 10px;color:#8B4B18;}
 .subscribe-box h3{
   font-family:var(--display);
   font-weight:600;
@@ -394,7 +394,7 @@ table.compare th{
 }
 .subscribe-box .subscribe-intro{
   font-size:14px;
-  color:var(--ink-dim);
+  color:#5A5D68;
   margin:0 0 18px;
 }
 .subscribe-freq{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 16px;}
@@ -462,8 +462,8 @@ table.compare th{
 .subscribe-kit-slot .formkit-alert-error{background:#FDE8E2;border:1px solid #F2643B;color:#9A2F16;}
 .subscribe-kit-slot .formkit-powered-by-convertkit-container{margin:10px 0 0;}
 .subscribe-kit-slot .formkit-powered-by-convertkit{
-  font-family:var(--mono);font-size:11px;color:var(--ink-dim);
-  text-decoration:none;opacity:0.7;
+  font-family:var(--mono);font-size:11px;color:#5A5D68;
+  text-decoration:none;
 }
 .subscribe-kit-slot .formkit-powered-by-convertkit:hover{opacity:1;color:var(--accent);}
 

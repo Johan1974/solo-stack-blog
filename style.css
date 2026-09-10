@@ -240,7 +240,7 @@ article.post .meta a{color:var(--ink-dim);}
 
 .disclosure{
   font-size:14px;
-  color:var(--ink-dim);
+  color:#5A5D68;
   background:var(--bg-frame);
   border-left:3px solid var(--accent-soft);
   padding:16px 20px;

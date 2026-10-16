@@ -12,7 +12,7 @@ Status-waarden: `gepland` → `concept, klaar voor review` (PR open) → `gepubl
 | 4 | Kit (ConvertKit) Review: Email Marketing for Solopreneurs | Spoke — review | kit convertkit review | Nee (aanvraag loopt) | gepubliceerd |
 | 5 | Descript Review: AI Video and Audio Editing for Solo Creators | Spoke — review | descript review | Nee (nog niet goedgekeurd) | gepubliceerd |
 | 6 | Opus Clip Review: Turning Long-Form Video into Clips Automatically | Spoke — review | opus clip review | Nee (nog niet goedgekeurd) | gepubliceerd |
-| 7 | Systeme.io vs Kit: Which One Should Solopreneurs Actually Use? | Vergelijking | systeme.io vs kit | Ja (Systeme.io) | gepland |
+| 7 | Systeme.io vs Kit: Which One Should Solopreneurs Actually Use? | Vergelijking | systeme.io vs kit | Ja (Systeme.io) | concept, klaar voor review |
 | 8 | How to Build Your First Sales Funnel as a Solopreneur (Step by Step) | How-to | how to build a sales funnel | Ja (Systeme.io) | gepland |
 | 9 | Do You Actually Need an Email List as a Solopreneur? | How-to / opinion | do i need an email list | Nee | gepland |
 | 10 | The Real Cost of Running a One-Person Business on AI Tools | Opinion / kostenoverzicht | ai tools cost solopreneur | Ja (Systeme.io) | gepland |

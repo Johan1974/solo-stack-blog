@@ -10,6 +10,7 @@ Houdt bij wanneer elk gepubliceerd artikel voor het laatst gecontroleerd is op a
 | articles/kit-convertkit-review.html | nog niet gecheckt | — |
 | articles/descript-review.html | nog niet gecheckt | — |
 | articles/opus-clip-review.html | nog niet gecheckt | — |
+| articles/systeme-io-vs-kit.html | nog niet gecheckt | — |
 
 ## Regels
 - Nieuw gepubliceerd artikel: hier direct aan toevoegen met "nog niet gecheckt".

@@ -3,6 +3,10 @@
 Nieuwste bovenaan. Bijgehouden door `.github/workflows/pagespeed.yml` (draait dagelijks om 06:00 UTC, roteert automatisch over de pagina's), gelezen door de `solo-stack-growth-research`-routine (TASK 3) om concrete actiepunten aan `SEO-TODO.md` toe te voegen.
 
 <!-- ENTRIES-START -->
+## 2026-10-16 — https://johan1974.github.io/solo-stack-blog/articles/jasper-ai-review.html
+
+ERROR: request failed (HTTP Error 400: Bad Request)
+
 ## 2026-10-15 — https://johan1974.github.io/solo-stack-blog/articles/systeme-io-review.html
 
 Scores: performance 91/100, accessibility 100/100, best-practices 100/100, seo 100/100
